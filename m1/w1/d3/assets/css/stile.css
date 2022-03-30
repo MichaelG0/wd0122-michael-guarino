@@ -1,0 +1,139 @@
+/* IMPOSTAZIONI GENERALI */
+
+body{
+    font-family: 'Raleway', sans-serif;
+    max-width: 450px;
+    margin: auto;
+    line-height: 30px;
+}
+
+/* HEADER */
+
+header{
+    background-color: rgb(40, 168, 207);
+    padding-top: 28px;
+    padding-bottom: 35px;
+    text-align: center;
+    line-height: 35px;
+    border-bottom: 5px solid rgb(0, 130, 170);
+}
+
+h1{
+    text-transform: uppercase;
+    font-size: xx-large;
+    color: aliceblue;
+    line-height: 64px;
+    padding-bottom: 30px;
+}
+
+span{
+    display: block;
+    background-color: white;
+    color: rgb(40, 168, 207);
+    max-width: 250px;
+    margin: auto;
+}
+
+#title{
+    color: black;
+    font-weight: lighter;
+    text-transform: none;
+    margin: auto;
+}
+
+/* MAIN */
+
+h2{
+    text-transform: uppercase;
+    font-size: x-large;
+    text-align: center;
+    color: rgb(40, 168, 207);
+    font-weight: bold;
+    line-height: 50px;
+    margin-top: 30px;
+}
+
+h3{
+    font-weight: bold;
+    font-size: large;
+}
+
+b{
+    font-weight: bold;
+}
+
+strong{
+    color: rgb(40, 168, 207);
+}
+
+/* ELEMENTI NEL MAIN */
+
+hr{
+    border-top: 1px dashed;
+    margin: 30px 20px 0px 20px;
+}
+
+#sudime{
+    margin: 20px 0px;
+}
+
+div{
+    margin: 20px;
+}
+
+a{
+    color: rgb(206, 0, 0);
+}
+
+figure{
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+figure img{
+    object-fit: cover;
+    max-width: 80%;
+    border: 1px solid rgba(0, 0, 0, 0.123);
+    padding: 8px;
+}
+
+blockquote{
+    text-align: center;
+    padding: 20px;
+    font-style: italic;
+    background-color: rgb(225, 239, 252);
+    border-radius: 25px;
+}
+
+ul, dd{
+    padding: 0px 40px 0px 40px;
+}
+
+mark{
+    color: white;
+    background-color: rgb(40, 168, 207);
+}
+
+/* FOOTER */
+
+footer{
+    background-color: rgba(0, 0, 0, 0.801);
+    color: aliceblue;
+    margin-top: 30px;
+    border-top: 5px solid rgb(0, 130, 170);
+    font-size: 14px;
+    text-align: center;
+    padding: 10px;
+}
+
+footer kbd{
+    color: yellow;
+    font-weight: bold;
+    font-style: italic;
+}
+
+small{
+    display: block;
+    color: rgba(255, 255, 255, 0.459);
+    margin: 20px 0px;
+}
