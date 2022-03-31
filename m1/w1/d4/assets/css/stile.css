@@ -157,7 +157,7 @@ tr:nth-child(even){
 input{
     font-size: medium;
     padding: 6px;
-    max-width: 66%;
+    width: 57%;
     border: 0px;
     border-bottom: 1px dashed;
 }
