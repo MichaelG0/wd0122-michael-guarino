@@ -1,0 +1,115 @@
+h2{
+    font-size: 1.8rem;
+    font-weight: bold;
+}
+
+#s1{
+    display: flex;
+    flex-wrap: wrap;
+    background-color: orange;
+    width: 1200px;
+    height: 500px;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.block{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 200px;
+    width: 250px;
+    box-shadow: 5px 5px 10px 0px rgba(0, 0, 0, 0.473);
+    transition-duration: 0.5s;
+    transform-style: preserve-3d;
+}
+
+.block:hover{
+    transform: perspective(10px) rotate(0deg) translateZ(2px);
+    z-index: 2;
+}
+
+.block *{
+    flex-basis: 25%;
+    margin-left: 25%;
+}
+
+.block h2{
+    margin-top: 25px;
+}
+
+.d1{
+    background: linear-gradient(bisque, 80%, grey);
+    transform: rotate(-4deg);
+}
+.d2{
+    background: linear-gradient(lightblue, 80%, grey);
+    transform: rotate(5deg);
+}
+.d3{
+    background: linear-gradient(lightcoral, 80%, grey);
+    transform: rotate(-5deg);
+}
+.d4{
+    background: linear-gradient(lightcyan, 80%, grey);
+    transform: rotate(9deg);
+}
+.d5{
+    background: linear-gradient(aquamarine, 80%, grey);
+    transform: rotate(-5deg);
+}
+.d6{
+    background: linear-gradient(lightgreen, 80%, grey);
+    transform: rotate(-10deg);
+}
+.d7{
+    background: linear-gradient(lightskyblue, 80%, grey);
+    transform: rotate(-4deg);
+}
+.d8{
+    background: linear-gradient(lightseagreen, 80%, rgb(99, 99, 99));
+    transform: rotate(5deg);
+}
+
+/*
+1 creazione del testo e formattazione di 1 parola da far ruotare
+2 inserimento delle altre 2 parole
+3 sovrapporre le 3 parole
+4 mostrare 1 parola e nascondere le altre 2
+5 animare 1 parola (fadein - fadeout con spostamento)
+6 animare le altre 2 parole
+7 ritardare progressivamente l'animazione delle altre 2 parole 
+*/
+
+#s2{
+    margin: 50px;
+}
+
+#s2 p{
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+span{
+    position: absolute;
+    color: mediumturquoise;
+    animation-name: sposta;
+    animation-duration: 6s;
+    animation-iteration-count: infinite;
+    margin-left: 10px;
+    opacity: 0;
+}
+
+.span2{
+    animation-delay: 2s;
+}
+
+.span3{
+    animation-delay: 4s;
+}
+
+@keyframes sposta{
+   0%{opacity: 0; transform: translateY(-30px)}
+   5%, 20% {opacity: 1; transform: translateY(0px)}
+   25%, 100%{opacity: 0; transform: translateY(60px)}
+}
