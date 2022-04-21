@@ -23,7 +23,9 @@
         <div>
     </header>
 
-    <nav> 
+    <!-- Navbar Desktop -->
+
+    <nav id="navdesktop"> 
         <div class="logo">
             <img src="assets/images/logo.png">
         </div>
@@ -40,43 +42,64 @@
         </div>
         
     </nav>
+    
+    <!-- nav-mobile -->
+
+    <nav id="navmobile">
+        
+        <div id="nav-mobile-flex">
+            <div class="logo">
+                <img src="assets/images/logo.png">
+            </div>
+            
+            <label for="aprimenu"><i class="fa-solid fa-bars"></i></label>
+        </div>
+
+        <input id="aprimenu" type="checkbox">
+
+        <ul>
+            <li><p class="underline"><a href="#">HOME</a></p></li>
+            <li><p class="underline"><a href="#aboutus">ABOUT US</a></p></li>
+            <li><p class="underline"><a href="#blog">BLOG</a></p></li>
+            <li><p class="underline"><a href="#menu">MENU</a></p></li>
+            <li><p class="underline"><a href="#news">NEWS</a></p></li>
+            <li><p class="underline"><a href="#contatti">CONTACTS</a></p></li>
+        </ul>
+
+    </nav>
+
+
     <main>
+
         <section class="menu-scorrimento">
+
             <div class="scorrimento">
                 
                 <div class="scorrimento-t">
-                    <h2>FEATURED <span>WORKS</span></h2> 
+                    <h3>FEATURED <span>WORKS</span></h3> 
                     <a class="avanti"><i class="fa-solid fa-angle-right"></i></a>
                 </div>
                 
                 <div id="carosello">
                     
-                    <div>
-                        
-                        <img src="assets/images/slider/slider-img-1.jpg">
-                    
-                   
-                    
-                        <img src="assets/images/slider/slider-img-2.jpg">
-                    
-                    
-                    
-                        <img src="assets/images/slider/slider-img-3.jpg">
-                    
-                    
-                    
-                        <img src="assets/images/slider/slider-img-4.jpg">
-                    
-                    
-                        <img src="assets/images/slider/slider-img-1.jpg">
+
+                    <div class="scroller">
+                        <img class="imgc" src="assets/images/slider/slider-img-1.jpg">
+                        <img class="imgc" src="assets/images/slider/slider-img-2.jpg">
+                        <img class="imgc" src="assets/images/slider/slider-img-3.jpg">
+                        <img class="imgc" src="assets/images/slider/slider-img-4.jpg">
+                        <img class="imgc" src="assets/images/slider/slider-img-1.jpg">
+                        <img class="imgc" src="assets/images/slider/slider-img-2.jpg">
+                        <img class="imgc" src="assets/images/slider/slider-img-3.jpg">
+                        <img class="imgc" src="assets/images/slider/slider-img-4.jpg">
                     </div>
                     
                 </div>
-                
-                
-
-                <span class="punto"><i class="fa-solid fa-circle"></i></span>
-                <span class="punto"><i class="fa-solid fa-circle"></i></span>
+                <div class="punti">
+                    <span class="punto"><i class="fa-solid fa-circle"></i></span>
+                    <span class="punto"><i class="fa-solid fa-circle"></i></span>
+                    
+                </div>
                 
             </div>
 
@@ -85,7 +108,7 @@
       
         <section id="aboutus">
             <img src="assets/images/cooker-img.png">
-            <h2> Your <span>Restourant's</span>
+            <h2> Your <span>Restaurant's</span>
             <h2> Website Has To Look <span>Good</span>
                 <hr id="hm">
                 <p id="pa">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas doloremque, hic iusto ipsum, nemo natus voluptatibus ipsam non repudiandae accusantium placeat assumenda ex repellat ipsa voluptatem, ducimus veritatis. Est, natus.</p>
@@ -261,7 +284,7 @@
                     </div>
 
 
-                    </section>
+        </section>
 
         <section id="news">
 
@@ -269,27 +292,36 @@
                 <h2>SUBSCRIBE <span>to our</span> NEWSLETTER</h2>
                 <hr>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
-                <input type="email" placeholder="Enter your email to subscribe..." id="mail"> 
-                <input class="subscribe" type="submit" value="SUBSCRIBE" id="subscribe">
+                
+                <div class="formflex">
+                    <input type="email" placeholder="Enter your email to subscribe..." id="mail"> 
+                    <input class="subscribe" type="submit" value="SUBSCRIBE" id="subscribe">
+
+                </div>
+            
+                
+                
+                
             </form>
 
         </section>
+
         <section id="contatti">
 
-            <form action="post">
-                <div class="condiv">
-                    <h2>our <span>CONTACT US</span></h2>
-                    <hr>
-                    <h3>SIGN UP FOR <span>EMAIL ALERTS</span></h3>
+            <div class="condiv">
+                <h2>our <span>CONTACT US</span></h2>
+                <hr>
+                <h3>SIGN UP FOR <span>EMAIL ALERTS</span></h3>
+                <form action="post">
                     <input type="text" placeholder="  Write your full name here..." class="box">
                     <br>
                     <input type="email" placeholder="  Write yuor email address here..." class="box">
                     <br>
                     <textarea name="textarea" class="testog" rows="15" cols="121" placeholder=" Write your message here..."></textarea>
                     <button class="send" href="#" id="buttond">SEND YOUR MESSAGE </button>
-                </div>
-            </form>
-            
+                </form>
+            </div>
+
         </section>
                     
                      
@@ -302,17 +334,17 @@
                 
                 <ul>
                 <li>
-                <h4><i class="fa-solid fa-phone"></i><span>      Telefone</span><h4>
+                <h4><i class="fa-solid fa-phone"></i><span> Telefone</span><h4>
                 <p>(000) 123 45678-(000) 123 4567 89<p>
                 </li>
         
                 <li>
-                <h4><i class="fa fa-map-marker-alt"></i><span>     Address</span><h4>
+                <h4><i class="fa fa-map-marker-alt"></i><span> Address</span><h4>
                 <p>2046 Blue Spruce Lane Laurel Canada<p>
                 </li>
         
                 <li>
-                <h4><i class="fa fa-envelope"></i><span>      E mail</span><h4>
+                <h4><i class="fa fa-envelope"></i><span> E mail</span><h4>
                 <p>rest@gmail.com-rest@mail.ru</p>
                 </li>
                 </ul>
@@ -354,10 +386,10 @@
                 <h3>Follow<span>US<span></h3>
                 <ul>
                     
-                    <li><a href="#"><i class="fa-brands fa-twitter-square"></i></a></li>
-                    <li><a href="#"><i class="fa-brands fa-facebook"></i></a></li>
-                    <li><a href="#"><i class="fa-brands fa-dribbble-square"></i></a></li>
-                    <li><a href="#"><i class="fa-brands fa-behance-square"></i></a></li>
+                    <li><a href="#"><i class="fa-brands fa-twitter"></i></a></li>
+                    <li><a href="#"><i class="fa-brands fa-facebook-f"></i></a></li>
+                    <li><a href="#"><i class="fa-brands fa-dribbble"></i></a></li>
+                    <li><a href="#"><i class="fa-brands fa-behance"></i></a></li>
                 </ul>
 
                 </div>
@@ -366,7 +398,7 @@
 </main>     
        <footer>
            <div class="block">
-               <p>Copyright © 2014 - All Rights Reserved.Design and Developed By<span>Themefisher</span></p>
+               <p>Copyright © 2014 - All Rights Reserved.Design and Developed By <span>Themefisher</span></p>
 
 
 

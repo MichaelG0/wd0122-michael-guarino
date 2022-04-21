@@ -1,7 +1,9 @@
 /* GENERAL */
 html{font-size: 100%;}
 
-body{font-family: 'Josefin Sans', sans-serif;}
+body{
+    font-family: 'Josefin Sans', sans-serif;
+}
 
 h1, h2, h3, h4, h5, h6{
     line-height: 1.5;
@@ -42,40 +44,13 @@ a{
     color: black;
 }
 
-/* CAROSELLO */
-
-    #carosello{
-        padding-top: 20px ;
-        /* display: flex; */
-        /* gap: 30px; */
-        white-space: nowrap;
-        overflow: hidden;
-        position: relative;
-        background-color:grey;
-        transform: translate3d(-20% , 0 , 0);
-    }
-
-    #carosello .immagine{
-        display: inline-block;
-        position:relative;
-        width: 20%;
-        border-radius:2px;
-        margin-right: 5%;
-    }
-
-#carosello .immagine img{
-    width: 100%;
-   
-}
 
 li{
     list-style: none;
     display: inline-block;
 }
 
-.punto{
-    display: inline;
-}
+
 
 /* HEADER */
 
@@ -115,7 +90,18 @@ nav li:hover{
     cursor: pointer;
 }
 
+.punti{
+    display:flex;
+    justify-content: center;
+    gap:8px;
+}
 
+.punto{
+    display: inline-block;
+    text-align: center;
+    font-size: 15px;
+    color: rgb(212, 209, 209);
+}
 
 nav ul{
     display: inline-block;
@@ -125,7 +111,6 @@ nav ul{
 .underline{
     display: inline;
     position: relative;
-    
 }
 .underline:after {
     content: '';
@@ -138,18 +123,68 @@ nav ul{
     background-color: rgb(255, 72, 0);
     transform-origin: bottom right;
     transition: transform 0.25s ease-out;
-  }
+}
   
-  .underline:hover:after {
+.underline:hover:after {
     transform: scaleX(1);
     transform-origin: bottom left;
   } 
-
-
+  
+  
   nav{
-    opacity: 0.7;
-    
+      opacity: 0.8;
+      
   }
+  
+/* NAV MOBILE */
+
+#navmobile{
+    display: none;
+}
+#nav-mobile-flex{
+    display: flex;
+    justify-content: space-between;
+    padding: 19px 40px;
+}
+#navmobile i{
+    font-size: 1.5rem;
+}
+
+#aprimenu{
+    display:none;
+}
+
+#navmobile ul{
+    position: absolute;
+    display: block;
+    background-color: white;
+    height: 0px;
+    width: 95vw;
+    overflow: hidden;
+    transition: height 0.3s ease;
+}
+#navmobile input:checked ~ ul{
+    height: 250px;
+}
+#navmobile li{
+    display: block;
+    padding: 3px 40px;
+    text-decoration-color: rgb(255, 72, 0);
+}
+
+#navdesktop li:first-of-type, #navmobile li:first-of-type{
+    text-decoration: underline;
+}
+
+#navdesktop a, #navmobile a{
+    text-decoration-color: rgb(255, 72, 0);
+}
+
+#navmobile li:first-of-type{
+    padding-top: 30px;
+}
+
+
 
 /* BODY */
 
@@ -162,7 +197,7 @@ nav ul{
 }
 
 .scorrimento{
-    width: 1140px;
+    width: 1000px;
     margin: 0 auto;
 }
 
@@ -177,6 +212,35 @@ nav ul{
     color: grey;
 }
 
+/* CAROSELLO */
+
+#carosello{
+    padding: 20px 0px;
+    /* display: flex; */
+    /* gap: 30px; */
+    white-space: nowrap;
+    overflow: hidden;
+    position: relative;
+    /* background-color: grey; */
+    /* transform: translate3d(-20% , 0 , 0); */
+}
+
+.scroller{
+    display: inline-block;
+    /* position: relative; */
+    /* width: 22%; */
+    border-radius: 2px;
+}
+
+/* .scroller{
+    transform: translateX(0%);
+} */
+
+.scroller img{
+    padding: 0 5px;
+    width: 25%;
+    box-sizing: border-box;
+}
 
 /* ABOUT US SECTION */
 #aboutus{
@@ -241,6 +305,11 @@ nav ul{
     margin-bottom: 130px;
     width: 1140px;
     margin: 0 auto;
+
+}
+
+.blog-container-xl img{
+    cursor: pointer;
 }
 
 .blog-container{
@@ -445,14 +514,12 @@ nav ul{
     cursor: pointer;
     background-color:rgb(62, 162, 149);
     transition: background-color 0.8s;
-    
 }
 
 /* CONTACTS SECTION */
 #contatti{
     background-color: white;
     padding: 100px 20px;
-   
 }
 .condiv{
     position: relative;
@@ -480,7 +547,6 @@ nav ul{
     width: 100%;
     height: 150px;
     border: 1px solid #ccc;
-    
 }
 #buttond{
     position: absolute;
@@ -501,14 +567,20 @@ nav ul{
 .conta{ 
 width: 1200px;
  margin: 0 auto;
+ display:flex;
+ flex-direction:row;
+ justify-content: space-evenly;
+ align-items: stretch;
+
 }
 #footer{
     background-color: white;
     padding: 70px 0px;
     line-height: 1.4;
-    display:flex;
+    /* display:flex;
     flex-direction:row;
     justify-content: space-evenly;
+    align-items: stretch; */
 }
 .block{
     background-color: rgb(222, 222, 222);
@@ -559,12 +631,20 @@ width: 1200px;
     } */
     .fa-brands{
         text-align: center;
-        width: 49px;
-        height: 40px;
-        font-size: 40px;
-        
-        color: gray ;
-        
+        padding: 10px 5px 0px;
+        width: 30px;
+        height: 30px;
+        font-size: 20px;
+        background-color: rgba(128, 128, 128, 0.74);
+        color: white;
+        border-radius: 100%;
+        transition: 0.3s ease;
     }
-    
-    
+
+    .fa-brands:hover{
+        background-color: rgb(255, 72, 0);
+    }
+
+.container:first-of-type i{
+    margin-right: 20px;
+}
