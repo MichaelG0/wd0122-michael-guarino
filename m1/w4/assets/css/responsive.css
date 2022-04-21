@@ -1,0 +1,46 @@
+@media screen and (max-width: 1200px){
+    nav{
+        width: 940px;
+    }
+    .blog-container-xxl{
+        width: 940px;
+    }
+    .blog-container-xl{
+        width: 940px;
+    }
+    .blog-container > div{
+        width: 235px;
+    }
+    .blog h3{
+        padding: 10px 40px 0px;
+        font-size: 1rem;
+    }
+    .blog p{
+        font-size: 0.8rem;
+        padding: 0 20px;
+    }
+    .square{
+        transform: translate(-20px, 73px) rotate(45deg);
+    }
+    .rev{
+        transform: translate(215px, 73px) rotate(45deg);
+    }
+    .blog-button{
+        padding: 30px 81px;
+    }
+    .button-container{
+        padding: 31px 0px;
+    }
+
+    .sezioneprezzi {
+        width: 800px;
+    }
+    .menudiv{
+        width: 800px;
+    }
+
+}
+@media screen and (max-width:768px){
+    .container {
+        width: 28%;
+}    
