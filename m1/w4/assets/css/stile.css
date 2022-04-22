@@ -1,64 +1,61 @@
 /* GENERAL */
-html{font-size: 100%;}
-
+html{
+    font-size: 100%;
+    scroll-behavior: smooth;
+}
 body{
     font-family: 'Josefin Sans', sans-serif;
 }
-
 h1, h2, h3, h4, h5, h6{
     line-height: 1.5;
 }
-
 p{
     line-height: 1.8
 }
-
 h2{
     font-size: 2rem;
     font-weight: bold;
 }
-
 h3{
     font-size: 1.2rem;
 }
 h4{
     font-size: 0.7;}
-
 span{
     font-size: 2.5rem;
     color: rgb(255, 72, 0); 
 }
-
 hr{
     width: 120px;
     margin: 50px auto;
 }
-
 .hr-small{
     width: 90px;
     margin: 20px auto;
 }
-
 a{
     text-decoration: none;
     color: black;
 }
-
-
 li{
     list-style: none;
     display: inline-block;
 }
-
+input:placeholder-shown, textarea:placeholder-shown{
+    padding-left: 8px;
+}
+input:focus, input:not(:focus), textarea:focus, textarea:not(:focus){
+    padding-left: 8px;
+    outline: none;
+}
 
 
 /* HEADER */
 
-
 header img{
-    background-size: cover;
     max-width: 100%;
     filter: brightness(85%);
+    background-size: cover;
 }
 
 /* NAV */
@@ -75,10 +72,9 @@ nav{
     width: 1140px;
     padding: 20px 0px 5px;
     /* height: 60px; */
-    margin: -97px auto 0;
+    margin: -98px auto 0;
     /* top: 493px; */
     top:0px;
-    
     z-index: 10;
 }
 
@@ -86,7 +82,16 @@ nav li{
     padding: 20px 15px;
 }
 
+nav li:first-of-type{
+    border-bottom: solid rgb(255, 72, 0);
+}
+
+
 nav li:hover{
+    cursor: pointer;
+}
+
+.scorrimento-t i{
     cursor: pointer;
 }
 
@@ -94,6 +99,7 @@ nav li:hover{
     display:flex;
     justify-content: center;
     gap:8px;
+    cursor: pointer;
 }
 
 .punto{
@@ -103,9 +109,16 @@ nav li:hover{
     color: rgb(212, 209, 209);
 }
 
+.pindietro{
+    color: red;
+}
+
+.punto3, .punto4{
+    display: none
+}
+
 nav ul{
     display: inline-block;
-    
 }
 
 .underline{
@@ -148,6 +161,7 @@ nav ul{
 }
 #navmobile i{
     font-size: 1.5rem;
+    color: rgb(255, 72, 0);
 }
 
 #aprimenu{
@@ -168,13 +182,19 @@ nav ul{
 }
 #navmobile li{
     display: block;
-    padding: 3px 40px;
+    padding: 1px 40px;
+    margin: 2px 0px;
     text-decoration-color: rgb(255, 72, 0);
 }
 
-#navdesktop li:first-of-type, #navmobile li:first-of-type{
-    text-decoration: underline;
+#navdesktop li{
+    padding: 20px 0px 1px;
+    margin: 0px 5px 17px;
 }
+
+/* #navdesktop li:first-of-type, #navmobile li:first-of-type{
+    text-decoration: underline;
+} */
 
 #navdesktop a, #navmobile a{
     text-decoration-color: rgb(255, 72, 0);
@@ -184,15 +204,12 @@ nav ul{
     padding-top: 30px;
 }
 
-
-
 /* BODY */
 
 /* MENU A SCORRIMENTO  */
 
 .menu-scorrimento{
     background-color:white;
-    height: 300px;
     padding: 60px 0px;
 }
 
@@ -209,7 +226,7 @@ nav ul{
 
 .scorrimento-t i{
     font-size: 2.5rem;
-    color: grey;
+    color: rgba(128, 128, 128, 0.699);
 }
 
 /* CAROSELLO */
@@ -230,6 +247,7 @@ nav ul{
     /* position: relative; */
     /* width: 22%; */
     border-radius: 2px;
+    transition: 2s;
 }
 
 /* .scroller{
@@ -240,6 +258,9 @@ nav ul{
     padding: 0 5px;
     width: 25%;
     box-sizing: border-box;
+}
+.scroller img:first-of-type{
+    padding-left: 0;
 }
 
 /* ABOUT US SECTION */
@@ -305,7 +326,6 @@ nav ul{
     margin-bottom: 130px;
     width: 1140px;
     margin: 0 auto;
-
 }
 
 .blog-container-xl img{
@@ -495,12 +515,12 @@ nav ul{
 }
 #mail{
     height:60px;
-    width: 500px;
+    width: 360px;
     border-style: none;
 }
 #subscribe{
     height:62px;
-    width:200px;
+    width:187px;
     margin:-6px;
     background-color: rgb(128, 217, 205);
     color:white;
@@ -585,10 +605,7 @@ width: 1200px;
 .block{
     background-color: rgb(222, 222, 222);
     text-align: center;
-    height:50px;
-    padding-top: 30px;
-    padding-bottom: 10px;
-    
+    padding: 30px
 }
 
 .container{
