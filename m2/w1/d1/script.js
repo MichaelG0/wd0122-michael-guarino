@@ -2,7 +2,7 @@ let d = new Date();
 
 document.querySelector('#fulldate').innerHTML = d
 document.querySelector('#year').innerHTML = d.getFullYear()
-document.querySelector('#month').innerHTML = d.getMonth()
+document.querySelector('#month').innerHTML = d.getMonth() + 1
 document.querySelector('#day').innerHTML = d.getDate()
 
 
