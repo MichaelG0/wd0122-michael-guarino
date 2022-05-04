@@ -1,0 +1,56 @@
+@import 'variables';
+@import 'buttons';
+
+body{
+    background-image: $grad1;
+    height: 100vh;
+}
+
+header{
+    display: flex;
+    justify-content: space-between;
+    background: $grad2;
+}
+
+.logo{
+    background-image: url('https://www.nicepng.com/png/full/84-840970_evil-panda-png-graphic-transparent-panda-logo-head.png');
+    background-size: cover;
+    background-position: center;
+    width: 300px;
+    margin-left: 40px;
+}
+
+nav{
+    padding: 40px;
+}
+
+a{
+    text-decoration: none;
+    color: black;
+}
+
+@media screen and (min-width: 1220px) {
+    header{
+        justify-content: space-evenly;
+    }
+    main{
+        width: 1000px;
+        margin: 0 auto;
+    }
+}
+
+@media screen and (max-width: 720px){
+    nav{
+        padding-right: 20px;
+    }
+    .logo{
+        width: 200px;
+        margin-left: 0;
+    }
+}
+
+@media screen and (max-width: 560px){
+    .logo{
+        width: 110px;
+    }
+}
