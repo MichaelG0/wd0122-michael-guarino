@@ -1,0 +1,80 @@
+@import 'functions';
+@import '../node_modules/bootstrap/scss/bootstrap.scss';
+@import '../node_modules/bootstrap-icons/font/bootstrap-icons.css';
+
+
+#header{
+    z-index: 10;
+}
+
+.nav-link:not(.active):hover, .nav-link.active:not(.px-3):hover{
+    filter: brightness(70%);
+}
+.nav-pills .nav-link.active:hover{
+    background-color: #0a58ca;
+}
+
+.bg-light.bg-gradient.position-sticky{
+    box-shadow: 0px 7px 17px 0px rgba(0,0,0,0.23);
+}
+
+main{
+    color: set-color(#fff);
+    span{
+        font-size: 2.7rem;
+        color: orangered;
+    }
+}
+
+article:not(:first-of-type){
+    background-color: #fff;
+}
+
+#city-background{
+    position: fixed;
+    background: url('../img/pexels-aleksandar-pasaric-325185.jpg');
+    background-position: bottom center;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    z-index: -100;
+    opacity: .3;
+}
+
+#partners{
+    padding-top: 5rem;
+    background-color: #fff;
+    div{
+        text-align: center;
+    }
+    img{
+        width: 100%;
+        max-width: 8rem;
+    }
+}
+
+#testimonials{
+    background-color: #f3f4f5;
+}
+
+.img-box{
+    width: 9rem;
+    border-radius: 400px;
+    margin-bottom: 2rem;
+    overflow: hidden;
+    @media screen and (min-width: 768px) {
+        width: 400px;
+    }
+}
+
+.carousel-item > div{
+    margin: 0 auto;
+    width: 75%;
+}
+
+#footer{
+    color: set-color(#0a58ca);
+    a{
+        color: set-color(#0a58ca);
+    }
+}
