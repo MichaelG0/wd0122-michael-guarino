@@ -1,0 +1,36 @@
+{
+    "discografia": [
+        {
+            "title": "The Dark Side Of The Moon",
+            "year": 1973,
+            "artist": "Pink Floyd",
+            "songs": [
+                {
+                    "title": "Speak To Me"
+                },
+                {
+                    "title": "Time"
+                },
+                {
+                    "title": "Eclipse"
+                }
+            ]
+        },
+        {
+            "title": "Nursery Cryme",
+            "year": 1971,
+            "artist": "Genesis",
+            "songs": [
+                {
+                    "title": "Musical Box"
+                },
+                {
+                    "title": "For Absent Friends"
+                },
+                {
+                    "title": "Seven Stones"
+                }
+            ]
+        }
+    ]
+}
