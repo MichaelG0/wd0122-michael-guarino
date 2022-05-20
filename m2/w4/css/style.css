@@ -1,0 +1,125 @@
+
+body{
+    font-family: 'Lato', sans-serif !important;
+    overflow-x: hidden;
+}
+
+table{
+    width: 100%;
+}
+
+table th{
+    font-size: 20px;
+}
+
+.tr-th{
+    border-bottom: 3px solid black;
+}
+
+.tr-users{
+    border-bottom: 1px solid lightgray;
+}
+
+.btn{
+    border-radius: 20px !important;
+}
+
+.btn:hover{
+    transform: scale(1.05) !important;
+}
+
+.main{
+    height: 35vw;
+    display: flex;
+    align-items: end;
+    background-image: url(../img/emile-perron-xrVDYZRGdw4-unsplash.jpg);
+    background-size: cover;
+    background-position: bottom;
+    position: relative;
+    box-shadow: 0 0 5px #000;
+}
+
+.main::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgb(127,32,195);
+    background: linear-gradient(99deg, rgba(127,32,195,1) 0%, rgba(201,82,210,1) 50%, rgba(84,231,254,1) 100%);
+    opacity: .5;
+}
+.utenti{
+    height: 20vw;
+    display: flex;
+    align-items: center;
+    background-image: url(../img/ux-indonesia-qC2n6RQU4Vw-unsplash_1.jpg);
+    background-size: cover;
+    position: relative;
+}
+
+.utenti::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    opacity: .7;
+}
+
+.main-cont{
+    z-index: 100;
+    margin-bottom: 80px;
+}
+.utenti-cont{
+    z-index: 100;
+}
+
+.accordion-button{
+    margin-top: -30px;
+}
+
+.details{
+    padding: 80px !important;
+}
+
+.skills{
+    background-color: #eeeeee;
+    padding: 80px;
+    box-shadow: 0 0 5px #000;
+}
+
+.skills i{
+    color: rgb(0, 145, 255);
+}
+
+.card-title{
+    color: rgb(0, 183, 255);
+}
+
+footer{
+    padding: 50px;
+    background-color: rgb(73, 67, 78);
+    color: #fff;
+    box-shadow: 0 0 5px #000;
+}
+
+.titolo-bw {
+    color: palevioletred;
+    font-family: monospace;
+    border-right: .15em solid #000; 
+    white-space: nowrap; 
+    margin: 0 auto;
+    padding-right:00px;
+    letter-spacing: .15em;
+    animation: blink .5s step-end           infinite alternate;;
+}
+
+
+/* The typewriter cursor effect */
+@keyframes blink {
+50% { border-color: transparent}
+}
