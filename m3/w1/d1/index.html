@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        button{display: block; margin: 30px 0;}
+        span{font-size: 1.4rem; color: rgb(228, 125, 0);}
+    </style>
+</head>
+<body>
+    <h3>Player 1</h3>
+    <input id="plr1" type="range" value="5" min="1" max="10" oninput="this.nextElementSibling.value = this.value">
+    <input type="number" value="5" min="1" max="10" oninput="this.previousElementSibling.value = this.value">
+    
+    <h3>Player 2</h3>
+    <input id="plr2" type="range" value="5" min="1" max="10" oninput="this.nextElementSibling.value = this.value">
+    <input type="number" value="5" min="1" max="10" oninput="this.previousElementSibling.value = this.value">
+
+    <button>Submit</button>
+
+    <h3 id="gen-num"></h3>
+    <h2 id="win"></h2>
+
+    <script src="script.js"></script>
+</body>
+</html>
