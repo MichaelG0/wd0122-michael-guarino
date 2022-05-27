@@ -9,8 +9,10 @@ class FirstUser {
         this.credito += eur;
     }
     chiamata(min) {
-        this.nChiamate += 1;
-        this.credito = Math.floor((this.credito - min * 0.2) * 100) / 100;
+        if (this.credito > 0) {
+            this.nChiamate++;
+            this.credito = Math.floor((this.credito - min * 0.2) * 100) / 100;
+        }
     }
     numero404() {
         return this.credito;
@@ -31,8 +33,10 @@ class SecondUser {
         this.credito += eur;
     }
     chiamata(min) {
-        this.nChiamate += 1;
-        this.credito = Math.floor((this.credito - min * 0.2) * 100) / 100;
+        if (this.credito > 0) {
+            this.nChiamate++;
+            this.credito = Math.floor((this.credito - min * 0.2) * 100) / 100;
+        }
     }
     numero404() {
         return this.credito;
@@ -53,8 +57,10 @@ class ThirdUser {
         this.credito += eur;
     }
     chiamata(min) {
-        this.nChiamate += 1;
-        this.credito = Math.floor((this.credito - min * 0.2) * 100) / 100;
+        if (this.credito > 0) {
+            this.nChiamate++;
+            this.credito = Math.floor((this.credito - min * 0.2) * 100) / 100;
+        }
     }
     numero404() {
         return this.credito;
@@ -85,6 +91,8 @@ console.log(`Credito residuo: ${u2.numero404()}€`);
 u2.chiamata(5);
 u2.chiamata(9);
 u2.chiamata(28);
+u2.chiamata(21);
+u2.chiamata(7);
 u2.chiamata(15);
 u2.chiamata(6);
 u2.chiamata(18);
