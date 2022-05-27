@@ -24,7 +24,7 @@ class FirstUser implements ISmartphone{
     }
 
     public chiamata(min: number):void{
-        this.nChiamate += 1
+        this.nChiamate++
         this.credito = Math.floor((this.credito - min * 0.2) * 100) / 100
     }
 
@@ -55,7 +55,7 @@ class SecondUser implements ISmartphone{
     }
 
     public chiamata(min: number):void{
-        this.nChiamate += 1
+        this.nChiamate++
         this.credito = Math.floor((this.credito - min * 0.2) * 100) / 100
     }
 
@@ -86,7 +86,7 @@ class ThirdUser implements ISmartphone{
     }
 
     public chiamata(min: number):void{
-        this.nChiamate += 1
+        this.nChiamate++
         this.credito = Math.floor((this.credito - min * 0.2) * 100) / 100
     }
 
