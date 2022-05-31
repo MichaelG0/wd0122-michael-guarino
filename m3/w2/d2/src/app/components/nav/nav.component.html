@@ -1,0 +1,11 @@
+<div class="container">
+  <header class="d-flex justify-content-center py-3">
+    <ul class="nav nav-pills">
+      <li class="nav-item"><a [routerLink]="['/']" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="nav-link">Home</a></li>
+      <li class="nav-item"><a [routerLink]="['/active-posts']" routerLinkActive="active" class="nav-link">Active Posts</a></li>
+      <li class="nav-item"><a [routerLink]="['/inactive-posts']" routerLinkActive="active" class="nav-link">Inactive Posts</a></li>
+    </ul>
+  </header>
+
+  <router-outlet></router-outlet>
+</div>
