@@ -1,0 +1,11 @@
+<div *ngFor="let p of activePosts" class="card" style="width: 18rem;"
+[ngClass]="{
+'giallo': tupe == news,
+'verde': type == politic,
+'blue': type == education
+}">
+  <div class="card-body">
+    <h5 class="card-title">{{p.title}}</h5>
+    <p class="card-text">{{p.body}}</p>
+  </div>
+</div>

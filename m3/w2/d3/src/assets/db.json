@@ -1,0 +1,37 @@
+[
+  {
+      "id":1,
+      "body":"Sit minim deserunt enim enim nisi. Eiusmod incididunt dolore et ea anim. Non exercitation id voluptate et velit quis anim officia fugiat esse laborum nisi fugiat non.",
+      "title":"Dolor",
+      "active":true,
+      "type": "politics"
+  },
+  {
+      "id":2,
+      "body":"Sit minim deserunt enim enim nisi. Eiusmod incididunt dolore et ea anim. Non exercitation id voluptate et velit quis anim officia fugiat esse laborum nisi fugiat non.",
+      "title":"velit",
+      "active":true,
+      "type": "news"
+  },
+  {
+      "id":3,
+      "body":"Sit minim deserunt enim enim nisi. Eiusmod incididunt dolore et ea anim. Non exercitation id voluptate et velit quis anim officia fugiat esse laborum nisi fugiat non.",
+      "title":"sint",
+      "active":true,
+      "type": "news"
+  },
+  {
+      "id":4,
+      "body":"Sit minim deserunt enim enim nisi. Eiusmod incididunt dolore et ea anim. Non exercitation id voluptate et velit quis anim officia fugiat esse laborum nisi fugiat non.",
+      "title":"tempor",
+      "active":false,
+      "type": "education"
+  },
+  {
+      "id":5,
+      "body":"Sit minim deserunt enim enim nisi. Eiusmod incididunt dolore et ea anim. Non exercitation id voluptate et velit quis anim officia fugiat esse laborum nisi fugiat non.",
+      "title":"culpa",
+      "active":false,
+      "type": "education"
+  }
+]
