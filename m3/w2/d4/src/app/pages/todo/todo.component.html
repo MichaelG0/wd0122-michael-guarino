@@ -1,0 +1,10 @@
+<form>
+    <div id="todoList" *ngFor="let item of stillTodo">
+        <p>- {{item.title}}</p>
+        <button (click)="done(item)">&#10004;</button>
+        <button (click)="remove(item)">&#10060;</button>
+    </div>
+
+    <input type="text" name="title" [(ngModel)]="title" placeholder="New item">
+    <button (click)="save()">+</button>
+</form>

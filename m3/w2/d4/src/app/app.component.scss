@@ -1,0 +1,30 @@
+nav {
+    p {
+        display: inline-block;
+        margin: 20px 8px
+    }
+
+    a {
+        text-decoration: none;
+        padding: 12px;
+        color: #0d6efd;
+        border-radius: 5px;
+    }
+
+    a:hover {
+        color: #4b93ff;
+    }
+
+    a.active {
+        color: #fff;
+        text-decoration: none;
+        background-color: #0d6efd;
+        outline: 0;
+        transition: all .3s;
+    }
+}
+
+hr {
+    border: 0px;
+    border-top: 1px solid rgba(0, 0, 0, 0.2);
+}
