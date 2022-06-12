@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>input{width: 90px;}</style>
 </head>
 <body>
     <form>
@@ -13,6 +14,25 @@
         <input type="button" value="Invio" onclick="myFunction()">
         <h3>Etá:</h3>
         <p id="age"></p>
+    </form>
+    <form>
+        <label for="anno">Anno</label>
+        <input type="number" id="anno">
+        <label for="mese">Mese</label>
+        <select id="mese"></select>
+        <label for="giorno">Giorno</label>
+        <input type="number" id="giorno">
+        <br>
+        <label for="anno2">Anno</label>
+        <input type="number" id="anno2">
+        <label for="mese2">Mese</label>
+        <select id="mese2"></select>
+        <label for="giorno2">Giorno</label>
+        <input type="number" id="giorno2">
+        <br>
+        <input type="button" value="Invio" onclick="daysDifference()">
+        <h3>Differenza:</h3>
+        <p id="diff"></p>
     </form>
 
     <script src="js/script.js"></script>

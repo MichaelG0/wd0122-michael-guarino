@@ -1,0 +1,12 @@
+<mat-toolbar color="primary">
+    <button mat-button [routerLink]="['/']">Home</button>
+    
+    <span class="example-spacer"></span>
+    
+    <button mat-button *ngIf="isUserLoggedIn()" [routerLink]="['/profile']">My Account</button>
+    <button mat-button *ngIf="!isUserLoggedIn()" [routerLink]="['/login']">Log In</button>
+    <button mat-button *ngIf="!isUserLoggedIn()" [routerLink]="['/']">Sign Up</button>
+    <button mat-button *ngIf="isUserLoggedIn()" (click)="logout()">Log Out</button>
+</mat-toolbar>
+
+<router-outlet></router-outlet>

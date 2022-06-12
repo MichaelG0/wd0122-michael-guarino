@@ -1,0 +1,6 @@
+<h1>Login</h1>
+<form>
+  <input type="email" placeholder="email" [(ngModel)]="authData.email" name="email">
+  <input type="password" placeholder="password" [(ngModel)]="authData.password" name="password">
+  <button mat-flat-button color="primary" (click)="login()">Log In</button>
+</form>
