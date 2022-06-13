@@ -1,0 +1,37 @@
+<header>
+    <div class="px-3 py-2 bg-dark text-white">
+        <div class="container">
+            <ul class="nav col-12 col-lg-auto my-2 justify-content-between align-items-center my-md-0 text-small">
+                <ul class="nav">
+                    <li>
+                        <a [routerLink]="['/']" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"
+                            class="nav-link text-secondary row text-center">
+                            <i class="bi bi-house-door col-12 fs-2"></i>
+                            <p class="col-12">Home</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a [routerLink]="['/new']" routerLinkActive="active"
+                            class="nav-link text-secondary row text-center">
+                            <i class="bi bi-file-earmark-plus col-12 fs-2"></i>
+                            <p class="col-12">New Post</p>
+                        </a>
+                    </li>
+                </ul>
+
+                <ul class="nav">
+                    <li>
+                        <form class="d-flex">
+                            <input type="email" class="form-control" placeholder="Email">
+                            <input type="password" class="form-control mx-2" placeholder="Password">
+                            <button type="button" class="btn btn-light text-dark me-2">Login</button>
+                        </form>
+                    </li>
+                    <li class="text-end">
+                        <button type="button" class="btn btn-primary">Sign-up</button>
+                    </li>
+                </ul>
+            </ul>
+        </div>
+    </div>
+</header>
