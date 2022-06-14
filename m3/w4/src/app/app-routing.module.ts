@@ -7,10 +7,6 @@ const routes: Routes = [
     loadChildren: () => import('./home/home.module').then((m) => m.HomeModule),
   },
   {
-    path: 'edit',
-    loadChildren: () => import('./edit/edit.module').then((m) => m.EditModule),
-  },
-  {
     path: 'new',
     loadChildren: () => import('./new/new.module').then((m) => m.NewModule),
   },

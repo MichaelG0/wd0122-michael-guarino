@@ -1,5 +1,7 @@
 export interface Post {
-    id: number,
-    title: string
-    body: string
+  id: number;
+  utente: string;
+  caption: string;
+  body: string;
+  liked?: []
 }

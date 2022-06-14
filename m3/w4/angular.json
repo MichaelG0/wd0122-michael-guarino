@@ -36,7 +36,7 @@
               "node_modules/bootstrap-icons/font/bootstrap-icons.scss"
             ],
             "scripts": [
-              "node_modules/bootstrap/dist/js/bootstrap.min.js.map"
+              "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
             ]
           },
           "configurations": {
