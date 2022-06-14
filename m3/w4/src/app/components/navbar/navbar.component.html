@@ -11,7 +11,7 @@
                         </a>
                     </li>
                     <li>
-                        <a [routerLink]="['/new']" routerLinkActive="active"
+                        <a *ngIf="isUserLogged()" [routerLink]="['/new']" routerLinkActive="active"
                             class="nav-link text-secondary row text-center">
                             <i class="bi bi-file-earmark-plus col-12 fs-2"></i>
                             <p class="col-12">New Post</p>

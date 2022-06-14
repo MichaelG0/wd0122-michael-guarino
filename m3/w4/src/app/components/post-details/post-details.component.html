@@ -15,7 +15,7 @@
                 <div class="btn-group">
                     <button class="pippo" (click)="like()" *ngIf="!liked && isUserLogged()" type="button"><i
                             class="bi bi-heart"></i></button>
-                    <button class="pippo" (click)="like()" *ngIf="liked" type="button"><i
+                    <button class="pippo" (click)="like()" *ngIf="liked && isUserLogged()" type="button"><i
                             class="bi bi-heart-fill text-danger"></i></button>
 
                 </div>

@@ -28,6 +28,8 @@ export class NavbarComponent implements OnInit {
   constructor(private userSrv: UsersService, private authSrv: AuthService) {}
 
   ngOnInit(): void {
+    if(this.isUserLogged())
+    this.getName()
   }
   
   login() {
