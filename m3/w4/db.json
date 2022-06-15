@@ -1,48 +1,79 @@
 {
   "users": [
     {
-      "email": "ducaw@mailinator.com",
-      "password": "$2a$10$ZGcxaAhaJN.e829pGhR9vuL0IveWBp5wG8CxB1Yl0ibvl/eHvLSLy",
-      "name": "Uriah Wheeler",
-      "surname": "Pate",
-      "username": "xugyzeja",
-      "id": 1
-    },
-    {
-      "email": "saqy@mailinator.com",
-      "password": "$2a$10$wcwre33B35w7S5kf.YrUR.lldr1nrZYCpxsfliPe.sVfCPzI1ekyW",
-      "name": "Yuri Hayes",
-      "surname": "Barrett",
-      "username": "syzon",
-      "id": 2
-    },
-    {
       "email": "admin@admin.it",
       "password": "$2a$10$Z81P.PNCbWGKzKlxfDWceOiU/7/fsuBJXHa6vBASFsaC6oTdiyFie",
       "name": "Admin",
       "surname": "Admin",
       "username": "Admin",
       "id": 3
+    },
+    {
+      "email": "ciao@ciao.it",
+      "password": "$2a$10$tmQugb10//SZLbZh7m83Ye0CKemBLUQnadD2ZeE86PEZ6.l0togHC",
+      "name": "ciao",
+      "surname": "Saunders",
+      "username": "tevyf",
+      "id": 4
+    },
+    {
+      "email": "test@test.it",
+      "password": "$2a$10$bImGmixXTFkahjd3o8cEwuuv8aZJjtOxE1.06x2u0h1HqoJqxJFMS",
+      "name": "test",
+      "surname": "Saunders",
+      "username": "tevyf",
+      "id": 5
     }
   ],
   "posts": [
     {
       "id": 1,
       "utente": "Simone",
-      "caption": "ferg sf sdf tuoiopiy opopowfvwfwfvdsf",
-      "liked": []
+      "caption": "ferg sf sdf tuoiopiy opopowfvwfwfvdsfsdfvasdfv asdfvasfvasf bobobobobobobobobobo",
+      "liked": [
+        4,
+        3
+      ]
     },
     {
       "id": 2,
       "utente": "John",
       "caption": "sdfgbdsgb opereerw",
-      "liked": []
+      "liked": [
+        4
+      ]
     },
     {
       "id": 3,
       "utente": "Bonham",
       "caption": "dfdbfgjjjjjjjjj",
-      "liked": []
+      "liked": [
+        3
+      ]
+    },
+    {
+      "utente": "tevyf",
+      "caption": "hwrweagvq",
+      "liked": [],
+      "id": 4
+    },
+    {
+      "utente": "tevyf",
+      "caption": "drtywbrsytbwrsybt",
+      "liked": [],
+      "id": 5
+    },
+    {
+      "utente": "tevyf",
+      "caption": "",
+      "liked": [],
+      "id": 6
+    },
+    {
+      "utente": "tevyf",
+      "caption": "dsdfsfsd",
+      "liked": [],
+      "id": 7
     }
   ]
 }

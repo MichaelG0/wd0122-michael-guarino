@@ -10,8 +10,6 @@ import { PostsService } from '../services/posts.service';
 export class HomeComponent implements OnInit {
   posts!: Post[];
   post!: Post;
-  liked: boolean = false;
-  edit: boolean = false;
 
   constructor(private postsSrv: PostsService) {}
 
@@ -31,15 +29,4 @@ export class HomeComponent implements OnInit {
     });
   }
 
-  editPost(id: number) {
-    this.edit = !this.edit;
-  }
-
-  modificaPost(id: number, caption: string) {
-    this.edit = !this.edit
-    this.postsSrv.modificaPost(id, { caption: caption }).subscribe(() => {
-      this.getPosts()
-    });
-    // this.getPosts()
-  }
 }

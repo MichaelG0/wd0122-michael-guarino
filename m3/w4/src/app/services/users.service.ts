@@ -14,4 +14,7 @@ export class UsersService {
     return this.http.post(this.apiUrlRegister, user)
   }
 
+  getUser(){
+    return JSON.parse(localStorage.getItem('user')!)
+  }
 }

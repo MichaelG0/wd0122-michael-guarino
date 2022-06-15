@@ -1,8 +1,11 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Injectable, Input, OnInit } from '@angular/core';
 import { Post } from 'src/app/interfaces/post';
 import { AuthService } from 'src/app/services/auth.service';
 import { PostsService } from 'src/app/services/posts.service';
 
+@Injectable({
+  providedIn: 'root',
+})
 @Component({
   selector: 'app-post-details',
   templateUrl: './post-details.component.html',
@@ -18,7 +21,7 @@ export class PostDetailsComponent implements OnInit {
 
   ngOnInit(): void {
     this.caption = this.post.caption
-    // this.liked = this.post.liked?.includes()
+    this.getLikedPosts()
   }
 
   modificaPost(id: number, caption: string) {
@@ -35,6 +38,13 @@ export class PostDetailsComponent implements OnInit {
 
   isUserLogged(){
     return this.authSrv.isUserLogged()
+  }
+  
+  getLikedPosts(): void {
+    if (JSON.parse(localStorage.getItem('user')!)){
+      const id = JSON.parse(localStorage.getItem('user')!).id
+      this.liked = this.post.liked.includes(id)
+    }
   }
 
 }

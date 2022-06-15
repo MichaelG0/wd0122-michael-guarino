@@ -8,7 +8,31 @@
                     <textarea [(ngModel)]="caption" class="form-control" *ngIf="edit" cols="100" rows="5"></textarea>
                     <button *ngIf="edit" (click)="modificaPost(post.id,caption)" class="btn btn-warning">Edit</button>
                 </div>
-                <button class="pippo" *ngIf="isUserLogged()" (click)="edit = !edit" type="button"><i class="bi bi-pencil-square "></i></button>
+
+                <div class="dropdown">
+                    <button class="btn btn-inherit" type="button" id="dropdownMenuButton1"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="bi bi-three-dots"></i>
+                    </button>
+                    <ul *ngIf="isUserLogged()"
+                        class="dropdown-menu dropdown-menu-dark position-absolute mx-0 border-0 shadow" aria-labelledby="dropdownMenuButton1">
+                        <li>
+                            <a (click)="edit = !edit" class="dropdown-item d-flex gap-2 align-items-center pippa">
+                                <i class="bi bi-pencil-square"></i>Edit
+                            </a>
+                        </li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        <li>
+                            <a class="dropdown-item d-flex gap-2 align-items-center">
+                                <i class="bi bi-trash3-fill"></i>Delete
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+
             </div>
 
             <div class="d-flex justify-content-between align-items-center">

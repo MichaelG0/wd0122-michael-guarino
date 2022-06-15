@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Iauthdata } from 'src/app/interfaces/iauthdata';
 import { User } from 'src/app/interfaces/user';
 import { AuthService } from 'src/app/services/auth.service';
@@ -19,13 +20,13 @@ export class NavbarComponent implements OnInit {
   };
 
   auth: Iauthdata = {
-    email: 'admin@admin.it',
-    password: 'admin',
+    email: 'ciao@ciao.it',
+    password: 'ciao',
   };
 
-  name: string = ''
+  username: string = ''
 
-  constructor(private userSrv: UsersService, private authSrv: AuthService) {}
+  constructor(private userSrv: UsersService, private authSrv: AuthService, private router: Router) {}
 
   ngOnInit(): void {
     if(this.isUserLogged())
@@ -45,11 +46,12 @@ export class NavbarComponent implements OnInit {
 
   logout(){
     this.authSrv.logout()
+    this.router.navigate(['/'])
   }
 
   getName(){
     let user: any = localStorage.getItem('user')
-    this.name = JSON.parse(user).name
+    this.username = JSON.parse(user).username
   }
 
   isUserLogged(){
