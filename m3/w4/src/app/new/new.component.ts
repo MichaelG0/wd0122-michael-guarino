@@ -14,6 +14,7 @@ export class NewComponent implements OnInit {
     utente: '',
     caption: '',
     liked: [],
+    date: ''
   };
 
   constructor(private postsSrv: PostsService, private userSrv: UsersService, private router: Router) {
@@ -23,6 +24,7 @@ export class NewComponent implements OnInit {
   ngOnInit(): void {}
 
   newPost() {
+    this.post.date = new Date().toLocaleDateString() + ', ' + new Date().toLocaleTimeString().slice(0, 4)
     this.postsSrv.newPost(this.post).subscribe(() => {
       this.router.navigate(['/'])
     });

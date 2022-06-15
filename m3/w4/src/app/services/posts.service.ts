@@ -27,4 +27,8 @@ export class PostsService {
   newPost(post: PostReg){
     return this.http.post(this.apiUrl, post)
   }
+
+  deletePost(id: number){
+    return this.http.delete(this.apiUrl + '/' + id)
+  }
 }
