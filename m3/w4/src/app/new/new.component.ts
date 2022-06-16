@@ -14,19 +14,33 @@ export class NewComponent implements OnInit {
     utente: '',
     caption: '',
     liked: [],
-    date: ''
+    date: '',
   };
 
-  constructor(private postsSrv: PostsService, private userSrv: UsersService, private router: Router) {
+  constructor(
+    private postsSrv: PostsService,
+    private userSrv: UsersService,
+    private router: Router
+  ) {
     this.post.utente = this.userSrv.getUser().username;
   }
 
   ngOnInit(): void {}
 
   newPost() {
-    this.post.date = new Date().toLocaleDateString() + ', ' + new Date().toLocaleTimeString().slice(0, 4)
+    this.post.date =
+      new Date().toLocaleDateString('en-EN', {
+        day: '2-digit',
+        month: 'short',
+        year: 'numeric',
+      }) +
+      ', ' +
+      new Date().toLocaleTimeString('it-IT', {
+        hour: '2-digit',
+        minute: '2-digit',
+      });
     this.postsSrv.newPost(this.post).subscribe(() => {
-      this.router.navigate(['/'])
+      this.router.navigate(['/']);
     });
   }
 }

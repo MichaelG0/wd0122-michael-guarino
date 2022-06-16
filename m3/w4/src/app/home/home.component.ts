@@ -10,6 +10,7 @@ import { PostsService } from '../services/posts.service';
 export class HomeComponent implements OnInit {
   posts!: Post[];
   post!: Post;
+  isLoading: boolean = false
 
   constructor(private postsSrv: PostsService) {}
 
@@ -18,15 +19,17 @@ export class HomeComponent implements OnInit {
   }
 
   getPosts() {
+    this.isLoading = true
     this.postsSrv.getPosts().subscribe((res) => {
-      this.posts = res;
+      this.posts = res.reverse();
+      this.isLoading = false
     });
   }
 
-  getPost(id: number) {
-    this.postsSrv.getPost(id).subscribe((res: any) => {
-      this.post = res;
-    });
-  }
+  // getPost(id: number) {
+  //   this.postsSrv.getPost(id).subscribe((res: any) => {
+  //     this.post = res;
+  //   });
+  // }
 
 }

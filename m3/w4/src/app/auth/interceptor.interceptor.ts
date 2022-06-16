@@ -15,7 +15,7 @@ export class InterceptorInterceptor implements HttpInterceptor {
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
     let token = localStorage.getItem('token');
     let newReq
-
+    
     if (token != null) {
       newReq = request.clone({
         headers: request.headers.append('Authorization', 'Bearer ' + token),
@@ -23,7 +23,7 @@ export class InterceptorInterceptor implements HttpInterceptor {
     } else {
       newReq = request;
     }
-
-    return next.handle(newReq);
+    
+    return next.handle(newReq)
   }
 }

@@ -9,6 +9,7 @@ import {
 import { Post } from 'src/app/interfaces/post';
 import { AuthService } from 'src/app/services/auth.service';
 import { PostsService } from 'src/app/services/posts.service';
+import Swal from 'sweetalert2';
 
 @Injectable({
   providedIn: 'root',
@@ -80,7 +81,25 @@ export class PostDetailsComponent implements OnInit {
   }
 
   deletePost() {
-    this.postsSrv.deletePost(this.post.id).subscribe();
+    Swal.fire({
+      title: 'Are you sure?',
+      text: "You won't be able to revert this!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes, delete it!'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.postsSrv.deletePost(this.post.id).subscribe(() => {
+          Swal.fire(
+            'Deleted!',
+            'Your file has been deleted.',
+            'success'
+          )}
+        );
+      }
+    })
   }
 
   // @HostListener('document:click', ['$event.target'])

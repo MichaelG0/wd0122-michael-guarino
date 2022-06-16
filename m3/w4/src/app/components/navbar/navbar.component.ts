@@ -24,37 +24,74 @@ export class NavbarComponent implements OnInit {
     password: 'ciao',
   };
 
-  username: string = ''
+  username: string = '';
+  wrongData: boolean = false
+  regEx = /^((?!\.)[\w-_.]*[^.])(@\w+)(\.\w+(\.\w+)?[^.\W])$/gm
 
-  constructor(private userSrv: UsersService, private authSrv: AuthService, private router: Router) {}
+  constructor(
+    private userSrv: UsersService,
+    private authSrv: AuthService,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
-    if(this.isUserLogged())
-    this.getName()
+    if (this.isUserLogged())
+    this.getName();
   }
-  
+
   login() {
     this.authSrv.login(this.auth).subscribe((res: any) => {
       this.authSrv.logUser(res.accessToken, res.user);
-      this.getName()
-    });
+      this.getName();
+      this.wrongData = false
+    },() => {this.wrongData = true}
+    );
   }
 
   signup() {
-    this.userSrv.registerUser(this.user).subscribe();
+    this.userSrv.registerUser(this.user).subscribe((data:any) => {
+      this.auth.email = this.user.email
+
+        this.authSrv.login(this.auth).subscribe((res:any) => {
+
+          this.authSrv.logUser(res.accessToken, res.user)
+          this.getName()
+        })
+    })
   }
 
   logout(){
     this.authSrv.logout()
     this.router.navigate(['/'])
+    
+    this.user = {
+      name: '',
+      surname: '',
+      username: '',
+      email: '',
+      password: '',
+    };
+
+    this.auth = {
+      email: '',
+      password: '',
+    };
   }
 
-  getName(){
-    let user: any = localStorage.getItem('user')
-    this.username = JSON.parse(user).username
+  getName() {
+    let user: any = localStorage.getItem('user');
+    this.username = JSON.parse(user).username;
   }
 
-  isUserLogged(){
-    return this.authSrv.isUserLogged()
+  isUserLogged() {
+    return this.authSrv.isUserLogged();
+  }
+
+  signupCondition() {
+    return this.user.name.length < 2 ||
+    this.user.surname.length < 2 ||
+    this.user.username.length < 2 ||
+    !this.user.email.match(this.regEx) ||
+    this.user.password.length < 4;
   }
 }
