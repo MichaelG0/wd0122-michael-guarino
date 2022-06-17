@@ -6,8 +6,7 @@ import {
   Input,
   OnInit,
   Output,
-  EventEmitter,
-  OnChanges
+  EventEmitter
 } from '@angular/core';
 import { Post } from 'src/app/interfaces/post';
 import { AuthService } from 'src/app/services/auth.service';
@@ -21,7 +20,7 @@ import { PostsService } from 'src/app/services/posts.service';
   templateUrl: './post-details.component.html',
   styleUrls: ['./post-details.component.scss'],
 })
-export class PostDetailsComponent implements OnInit, OnChanges {
+export class PostDetailsComponent implements OnInit {
   @Input() post!: Post;
   edit: boolean = false;
   caption!: string;
@@ -40,10 +39,6 @@ export class PostDetailsComponent implements OnInit, OnChanges {
     this.caption = this.post.caption;
     this.getLikedPosts();
     this.isOwner()
-  }
-
-  ngOnChanges(){
-    this.getLikedPosts()
   }
 
   modificaPost(id: number, caption: string) {
