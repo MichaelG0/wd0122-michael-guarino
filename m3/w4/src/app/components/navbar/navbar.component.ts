@@ -44,6 +44,7 @@ export class NavbarComponent implements OnInit {
       this.authSrv.logUser(res.accessToken, res.user);
       this.getName();
       this.wrongData = false
+      location.reload()
     },() => {this.wrongData = true}
     );
   }
@@ -53,9 +54,9 @@ export class NavbarComponent implements OnInit {
       this.auth.email = this.user.email
 
         this.authSrv.login(this.auth).subscribe((res:any) => {
-
           this.authSrv.logUser(res.accessToken, res.user)
           this.getName()
+          location.reload()
         })
     })
   }
