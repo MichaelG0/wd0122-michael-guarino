@@ -20,8 +20,8 @@ export class NavbarComponent implements OnInit {
   };
 
   auth: Iauthdata = {
-    email: 'ciao@ciao.it',
-    password: 'ciao',
+    email: '',
+    password: '',
   };
 
   username: string = '';

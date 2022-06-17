@@ -39,8 +39,7 @@ export class NewComponent implements OnInit {
         hour: '2-digit',
         minute: '2-digit',
       });
-    this.postsSrv.newPost(this.post).subscribe(() => {
       this.router.navigate(['/']);
-    });
+    this.postsSrv.newPost(this.post).subscribe();
   }
 }
