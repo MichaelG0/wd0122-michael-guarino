@@ -9,13 +9,12 @@
                     <button *ngIf="edit" (click)="modificaPost(post.id,caption)" class="btn btn-warning">Edit</button>
                 </div>
 
-                <div *ngIf="isUserLogged()" class="dropdown">
+                <div *ngIf="isUserLogged() && showDots" class="dropdown">
                     <button class="btn btn-inherit" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown"
                         aria-expanded="false">
                         <i class="bi bi-three-dots"></i>
                     </button>
-                    <ul
-                        class="dropdown-menu dropdown-menu-dark position-absolute mx-0 border-0 shadow"
+                    <ul class="dropdown-menu dropdown-menu-dark position-absolute mx-0 border-0 shadow"
                         aria-labelledby="dropdownMenuButton1">
                         <li>
                             <a (click)="edit = !edit" class="dropdown-item d-flex gap-2 align-items-center pippa">
@@ -36,10 +35,9 @@
 
             <div class="d-flex justify-content-between align-items-center">
                 <div *ngIf="isUserLogged()" class="btn-group">
-                    <button class="pippo" (click)="like()" *ngIf="!liked" type="button"><i
-                            class="bi bi-heart"></i></button>
-                    <button class="pippo" (click)="like()" *ngIf="liked" type="button"><i
-                            class="bi bi-heart-fill text-danger"></i></button>
+                    <button class="pippo" (click)="like()" type="button">
+                        <i *ngIf="!liked" class="bi bi-heart"></i>
+                        <i *ngIf="liked" class="bi bi-heart-fill text-danger"></i></button>
                     <small class="text-muted like">Like: {{likedArray.length}}</small>
                 </div>
                 <div></div>
