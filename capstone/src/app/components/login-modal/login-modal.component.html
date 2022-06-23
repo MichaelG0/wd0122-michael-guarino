@@ -15,6 +15,7 @@
                 <small *ngIf="loginFailed" class="text-danger">Wrong email or password</small>
                 <div (click)="btnClicked = true" class="btn-wrp">
                     <button class="btn btn-dark px-4" type="submit" [disabled]="loginForm.invalid">Continue</button>
+                    <p *ngIf="loading">Loading...</p>
                 </div>
             </form>
             <div class="modal-footer">

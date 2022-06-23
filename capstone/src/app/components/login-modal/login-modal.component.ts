@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { IAuthData } from 'src/app/interfaces/iauth-data';
 import { UserService } from 'src/app/services/user.service';
+declare var bootstrap: any;
 
 @Component({
   selector: 'app-login-modal',
@@ -12,6 +13,7 @@ export class LoginModalComponent implements OnInit {
   loginForm!: FormGroup;
   btnClicked: boolean = false;
   loginFailed: boolean = false;
+  loading: boolean = false
 
   constructor(private userSrv: UserService, private fb: FormBuilder) {}
 
@@ -29,8 +31,8 @@ export class LoginModalComponent implements OnInit {
   }
 
   onSubmit(form: FormGroup) {
-    console.log('Valid?', form.valid);
     if (form.valid) {
+      this.loading = true
       const authData: IAuthData = {
         email: form.value.email,
         password: form.value.password,
@@ -38,10 +40,12 @@ export class LoginModalComponent implements OnInit {
       this.userSrv.login(authData).subscribe((res: any) => {
         if (res === true)
           this.loginFailed = res;
-        // if (res){
-        //   const myModal = new bootstrap.Modal(document.getElementById('myModal'))
-        //   myModal.hide()
-        // }
+        else if (typeof res === 'object'){
+          const lgnMdlEl = document.querySelector('#exampleModalToggle2')
+          const loginModal = bootstrap.Modal.getInstance(lgnMdlEl)
+          loginModal.hide()
+        }
+        this.loading = false
       });
     }
   }
