@@ -38,8 +38,7 @@
                         [disabled]="signUpForm.get('email')!.invalid">Continue</button>
                 </div>
                 <div (click)="btnClicked2 = true" class="btn-wrp">
-                    <button *ngIf="gotEmail" class="btn btn-dark px-4" type="submit"
-                        [disabled]="signUpForm.invalid">Join</button>
+                    <button *ngIf="gotEmail" class="btn btn-dark px-4" type="submit" [disabled]="signUpForm.invalid">Join</button>
                 </div>
             </form>
 

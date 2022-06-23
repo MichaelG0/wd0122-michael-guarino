@@ -1,6 +1,7 @@
-<button type="button" class="btn btn-outline-dark px-3 me-2" data-bs-toggle="modal" href="#exampleModalToggle2">Sign in</button>
+<button type="button" class="btn btn-outline-dark px-3 me-2" data-bs-toggle="modal" href="#exampleModalToggle2">Sign
+    in</button>
 
-<div class="modal fade" id="exampleModalToggle2" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2"
+<div (show.bs.modal)="setForm()" class="modal fade" id="exampleModalToggle2" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2"
     tabindex="-1">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
@@ -8,9 +9,14 @@
                 <h3 class="modal-title" id="exampleModalToggleLabel2">Sign in to Logo.</h3>
                 <!-- <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> -->
             </div>
-            <div class="modal-body">
-                Hide this modal and show the first with the button below.
-            </div>
+            <form [formGroup]="loginForm" (ngSubmit)="onSubmit(loginForm)" class="modal-body">
+                <input formControlName="email" type="email" class="form-control" placeholder="Email">
+                <input formControlName="password" type="password" class="form-control" placeholder="Password">
+                <small *ngIf="loginFailed" class="text-danger">Wrong email or password</small>
+                <div (click)="btnClicked = true" class="btn-wrp">
+                    <button class="btn btn-dark px-4" type="submit" [disabled]="loginForm.invalid">Continue</button>
+                </div>
+            </form>
             <div class="modal-footer">
                 <span>
                     Not a member yet?
