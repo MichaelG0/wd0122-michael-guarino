@@ -33,7 +33,6 @@ export class ModalComponent implements OnInit {
   }
 
   onSubmit(form: FormGroup) {
-    console.log('Valid?', form.valid);
     if (form.valid){
       const user: IUser = {
         email: form.value.email,
