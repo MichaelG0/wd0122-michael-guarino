@@ -3,6 +3,12 @@
 $l-black: #3c3f42;
 $my-green: #1dbf73;
 
+body {
+    background-color: rgb(248, 249, 250);
+}
+
+// ===========================BUTTONS===========================
+
 .btn {
     border-radius: 10rem !important;
 
@@ -40,12 +46,19 @@ $my-green: #1dbf73;
     }
 }
 
-input {
+// ===========================FORM===========================
+
+input,
+textarea {
     box-shadow: none !important;
 
     &:focus:not(.warning, .success) {
         border-color: #2b30359c !important;
     }
+}
+
+textarea {
+    margin-top: 15px;
 }
 
 // ===========================MODAL===========================
@@ -143,4 +156,14 @@ input {
         stroke-dasharray: 90, 150;
         stroke-dashoffset: -124;
     }
+}
+
+// ===========================ASIDE===========================
+
+aside {
+    background-color: #fff;
+    box-shadow: 0 0.125rem 0.25rem rgb(0 0 0 / 8%);
+    background-clip: border-box;
+    border: 1px solid rgba(0, 0, 0, 0.125);
+    border-radius: 0.25rem;
 }

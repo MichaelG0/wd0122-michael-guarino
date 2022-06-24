@@ -28,12 +28,9 @@
                             placeholder="Choose a Password">
                         <small class="text-muted">8 characters or longer.</small>
                     </div>
-                    <div class="carousel-item">
-                        <img src="../../../assets/download.png" class="d-block w-100" alt="...">
-                    </div>
                 </div>
                 <div (click)="btnClicked = true" class="btn-wrp">
-                    <button *ngIf="!gotEmail" (click)="gotEmail = true" class="btn btn-dark px-4" type="submit"
+                    <button *ngIf="!gotEmail" (click)="gotEmail = true" class="btn btn-dark px-4" type="button"
                         data-bs-target="#carouselExampleIndicators" data-bs-slide="next"
                         [disabled]="signUpForm.get('email')!.invalid">Continue</button>
                 </div>

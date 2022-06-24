@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { IUser } from 'src/app/interfaces/iuser';
 import { UserService } from 'src/app/services/user.service';
+declare var bootstrap: any;
 
 @Component({
   selector: 'app-modal',
@@ -39,7 +40,13 @@ export class ModalComponent implements OnInit {
         username: form.value.username,
         password: form.value.password,
       };
-      this.userSrv.signUp(user).subscribe();
+      this.userSrv.signUp(user).subscribe((res: any) => {
+        if (typeof res === 'object'){
+          const sgnMdlEl = document.querySelector('#exampleModalToggle')
+          const signUpModal = bootstrap.Modal.getInstance(sgnMdlEl)
+          signUpModal.hide()
+        }
+      });
     }
   }
 

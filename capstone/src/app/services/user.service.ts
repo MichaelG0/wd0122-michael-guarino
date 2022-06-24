@@ -5,6 +5,7 @@ import { IUser } from '../interfaces/iuser';
 import { catchError, tap } from 'rxjs/operators';
 import { BehaviorSubject, of } from 'rxjs';
 import { JwtHelperService } from '@auth0/angular-jwt';
+import { IUserWithToken } from '../interfaces/iuser-with-token';
 
 @Injectable({
   providedIn: 'root',
@@ -14,7 +15,7 @@ export class UserService {
 
   jwtHelper = new JwtHelperService();
 
-  private loggedUser = new BehaviorSubject<boolean>(false);
+  private loggedUser = new BehaviorSubject<null | IUserWithToken>(null);
   loggedObs = this.loggedUser.asObservable();
 
   constructor(private http: HttpClient) {
@@ -25,28 +26,28 @@ export class UserService {
     let userJson = localStorage.getItem('user');
     if (!userJson)
       return;
-    const user: { accessToken: string; user: IUser } = JSON.parse(userJson);
+    const user: IUserWithToken = JSON.parse(userJson);
     if (this.jwtHelper.isTokenExpired(user.accessToken)) {
       this.logout();
       return;
     }
-    this.loggedUser.next(true);
+    this.loggedUser.next(user);
   }
 
   signUp(user: IUser) {
-    return this.http.post(this.apiUrl + 'register', user).pipe(
+    return this.http.post<IUserWithToken>(this.apiUrl + 'register', user).pipe(
       tap((res) => {
         localStorage.setItem('user', JSON.stringify(res));
-        this.loggedUser.next(true);
+        this.loggedUser.next(res);
       })
     );
   }
 
   login(authData: IAuthData) {
-    return this.http.post(this.apiUrl + 'login', authData).pipe(
+    return this.http.post<IUserWithToken>(this.apiUrl + 'login', authData).pipe(
       tap((res) => {
         localStorage.setItem('user', JSON.stringify(res));
-        this.loggedUser.next(true);
+        this.loggedUser.next(res);
       }),
       catchError(() => of(true))
     );
@@ -54,6 +55,7 @@ export class UserService {
 
   logout() {
     localStorage.removeItem('user');
-    this.loggedUser.next(false);
+    this.loggedUser.next(null);
   }
+
 }

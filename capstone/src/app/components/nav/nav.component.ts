@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { IUserWithToken } from 'src/app/interfaces/iuser-with-token';
 import { User } from 'src/app/interfaces/user';
 import { UserService } from 'src/app/services/user.service';
 
@@ -9,13 +10,13 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class NavComponent implements OnInit {
   user: User = new User
-  isLoggedIn: boolean = false
+  loggedUser: null | IUserWithToken = null
 
   constructor(private userSrv: UserService) { }
 
   ngOnInit(): void {
     this.userSrv.loggedObs.subscribe((res)=>{
-      this.isLoggedIn = res;
+      this.loggedUser = res;
     })
   }
 

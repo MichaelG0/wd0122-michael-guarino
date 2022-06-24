@@ -13,3 +13,16 @@
 .nav-link:hover, .nav-link.active {
     --underline-width: 100%;
 }
+
+.dropdown-toggle{
+    margin-top: -3px;
+    margin-bottom: -3px;
+    padding: 6px 12px 6px 6px;
+    border: 1px solid rgba(0, 0, 0, 0);
+    border-radius: 5rem;
+    transition: all .15s ease-out;
+    &:hover{
+        background-color: rgb(248, 249, 250);
+        border: 1px solid rgba(0, 0, 0, 0.125);
+    }
+}

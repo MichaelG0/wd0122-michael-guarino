@@ -5,6 +5,92 @@
       "password": "$2a$10$ShaLsc9vFy1vdlgl3s6EveOw.38YaSEU/sx1mQmyxL8FkB5GZ3c7y",
       "username": "admin",
       "id": 1
+    },
+    {
+      "email": "lota@mailinator.com",
+      "password": "$2a$10$mKXeaDdrdUkho/bT/K8sb.dP7musnNd/ngEqMLjQcObNPqQCQpc26",
+      "username": "Perferendis",
+      "id": 2
+    },
+    {
+      "email": "turuqy@mailinator.com",
+      "password": "$2a$10$6sg4HcOiFbce8BXVvzOZlOYZtZBK/zvBflzg0Kf03D43LGDMU5U2C",
+      "username": "Aliquamc",
+      "id": 3
+    },
+    {
+      "email": "milotyho@mailinator.com",
+      "password": "$2a$10$wCApqGLs/vVtB1WJSI9R6uoNra48Ztz5BXVb8Ku9dKlrOc.dBFuA2",
+      "username": "dignissimo",
+      "id": 4
+    },
+    {
+      "email": "vejuz@mailinator.com",
+      "password": "$2a$10$iMwKyzabYT5wEj4ghKYXY.AiYPGB/bwDCMwF/fv2uKPnvj3H3Lbb2",
+      "username": "reprehende",
+      "id": 5
+    }
+  ],
+  "posts": [
+    {
+      "title": "dfgdfgfd",
+      "caption": "gdfgdfgdfgd",
+      "id": 1,
+      "userid": 1
+    },
+    {
+      "title": "Nihil voluptas nobis",
+      "caption": "Aut a irure eos labo",
+      "id": 2,
+      "userid": 2
+    },
+    {
+      "title": "Sint aut quisquam mi",
+      "caption": "Natus deserunt ipsa",
+      "id": 3,
+      "userid": 1
+    },
+    {
+      "title": "Aliquip harum fugiat",
+      "caption": "Ducimus ipsum in ni",
+      "id": 4,
+      "userid": 2
+    },
+    {
+      "title": "Id mollit vitae mole",
+      "caption": "Aspernatur incididun",
+      "id": 5,
+      "userid": 3
+    },
+    {
+      "title": "Distinctio Consequa",
+      "caption": "Et magnam non quo in",
+      "id": 6,
+      "userid": 4
+    },
+    {
+      "title": "Quia numquam occaeca",
+      "caption": "Libero vero autem in",
+      "id": 7,
+      "userid": 3
+    },
+    {
+      "title": "Consectetur lorem t",
+      "caption": "Saepe non cillum vol",
+      "id": 8,
+      "userid": 4
+    },
+    {
+      "title": "Eos voluptate qui ve",
+      "caption": "Iure atque blanditii",
+      "id": 9,
+      "userid": 5
+    },
+    {
+      "title": "Voluptate sunt iure ",
+      "caption": "Laudantium sequi ab",
+      "id": 1,
+      "userid": 5
     }
   ]
 }

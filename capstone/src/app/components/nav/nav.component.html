@@ -1,46 +1,49 @@
-<div class="container">
-    <header
-        class="d-flex align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
-        <div class="d-flex col-xl-6 col-5 justify-content-between">
-            <a [routerLink]="['/']" class="d-flex align-items-center text-dark text-decoration-none">
-                <h3 class="m-0">Logo.</h3>
-            </a>
-
-            <form class="d-flex w-100 ms-4" role="search">
-                <input type="search" class="form-control rounded-0 rounded-start" placeholder="Search..." aria-label="Search">
-                <button type="button" class="src-btn btn btn-dark me-2"><i class="bi bi-search"></i></button>
-            </form>
-        </div>
-
-        <div class="d-flex justify-content-between">
-            <ul class="nav justify-content-center gap-3 me-4">
-                <li><a [routerLink]="['/']" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="nav-link px-0 link-dark">Home</a></li>
-                <li><a [routerLink]="['/g']" routerLinkActive="active" class="nav-link px-0 link-dark">Features</a></li>
-                <li><a [routerLink]="['/gg']" routerLinkActive="active" class="nav-link px-0 link-dark">Pricing</a></li>
-                <li><a [routerLink]="['/ggg']" routerLinkActive="active" class="nav-link px-0 link-dark">FAQs</a></li>
-                <li><a [routerLink]="['/gggg']" routerLinkActive="active" class="nav-link px-0 link-dark">About</a></li>
-            </ul>
-
-            <div *ngIf="!isLoggedIn" class="text-end">
-                <app-login-modal></app-login-modal>
-                <app-modal></app-modal>
-            </div>
-
-            <div *ngIf="isLoggedIn" class="dropdown text-end ms-3">
-                <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" id="dropdownUser1"
-                    data-bs-toggle="dropdown" aria-expanded="false">
-                    <img src="https://github.com/mdo.png" alt="mdo" width="32" height="32" class="rounded-circle">
+<div class="bg-white border-bottom shadow-sm mb-5">
+    <div class="container">
+        <header
+            class="d-flex align-items-center justify-content-center justify-content-md-between pt-2 mb-2">
+            <div class="d-flex col-xl-6 col-5 justify-content-between">
+                <a [routerLink]="['/']" class="d-flex align-items-center text-dark text-decoration-none">
+                    <h3 class="m-0">Logo.</h3>
                 </a>
-                <ul class="dropdown-menu text-small" aria-labelledby="dropdownUser1">
-                    <li><a class="dropdown-item" href="#">New project...</a></li>
-                    <li><a class="dropdown-item" href="#">Settings</a></li>
-                    <li><a class="dropdown-item" href="#">Profile</a></li>
-                    <li>
-                        <hr class="dropdown-divider">
-                    </li>
-                    <li><a (click)="logout()" class="dropdown-item" href="#">Sign out</a></li>
-                </ul>
+    
+                <form class="d-flex w-100 ms-4" role="search">
+                    <input type="search" class="form-control rounded-0 rounded-start" placeholder="Search..." aria-label="Search">
+                    <button type="button" class="src-btn btn btn-dark me-2"><i class="bi bi-search"></i></button>
+                </form>
             </div>
-        </div>
-    </header>
+    
+            <div class="d-flex justify-content-between">
+                <ul class="nav justify-content-center gap-3 me-4">
+                    <li><a [routerLink]="['/']" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="nav-link px-0 link-dark">Home</a></li>
+                    <li><a [routerLink]="['/new']" routerLinkActive="active" class="nav-link px-0 link-dark">Post</a></li>
+                    <li><a [routerLink]="['/gg']" routerLinkActive="active" class="nav-link px-0 link-dark">Pricing</a></li>
+                    <li><a [routerLink]="['/ggg']" routerLinkActive="active" class="nav-link px-0 link-dark">FAQs</a></li>
+                    <li><a [routerLink]="['/gggg']" routerLinkActive="active" class="nav-link px-0 link-dark">About</a></li>
+                </ul>
+    
+                <div *ngIf="!loggedUser" class="text-end">
+                    <app-login-modal></app-login-modal>
+                    <app-modal></app-modal>
+                </div>
+    
+                <div *ngIf="loggedUser" class="dropdown text-end ms-3">
+                    <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" id="dropdownUser1"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        <img src="https://github.com/mdo.png" alt="mdo" width="32" height="32" class="rounded-circle">
+                        <span class="ms-2 me-1">{{loggedUser.user.username}}</span>
+                    </a>
+                    <ul class="dropdown-menu text-small" aria-labelledby="dropdownUser1">
+                        <li><a class="dropdown-item">New project...</a></li>
+                        <li><a class="dropdown-item">Settings</a></li>
+                        <li><a class="dropdown-item">Profile</a></li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        <li><a (click)="logout()" class="dropdown-item" href="#">Sign out</a></li>
+                    </ul>
+                </div>
+            </div>
+        </header>
+    </div>
 </div>

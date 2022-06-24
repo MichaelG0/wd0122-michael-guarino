@@ -7,6 +7,9 @@ const routes: Routes = [
     pathMatch: 'full',
     loadChildren: () => import('./pages/home/home.module').then((m) => m.HomeModule),
   },
+  { path: 'new',
+    loadChildren: () => import('./pages/new-post/new-post.module').then(m => m.NewPostModule)
+  },
 ];
 
 @NgModule({
