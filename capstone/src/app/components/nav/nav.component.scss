@@ -1,8 +1,8 @@
-// #header {
-//     position: sticky;
-//     top: 0;
-//     z-index: 1020;
-// }
+#header {
+    position: sticky;
+    top: 0;
+    z-index: 1020;
+}
 
 .src-btn {
     border-radius: 0 0.3rem 0.3rem 0 !important;
@@ -20,14 +20,21 @@
     --underline-width: 100%;
 }
 
-.dropdown-toggle {
-    margin-top: -3px;
-    margin-bottom: -3px;
-    padding: 6px 12px 6px 6px;
+#dropdownUser1 {
+    padding: 3px 12px 3px 6px;
     border: 1px solid rgba(0, 0, 0, 0);
     border-radius: 5rem;
     transition: all .07s ease-out;
     &:hover, &:focus {
         border: 1px solid rgba(0, 0, 0, 0.125);
+    }
+
+    #avatar-box {
+        display: inline-block;
+        height: 32px;
+        width: 32px;
+        border-radius: 20rem;
+        background: url(../../../assets/avatar.png) center;
+        background-size: 40px;
     }
 }

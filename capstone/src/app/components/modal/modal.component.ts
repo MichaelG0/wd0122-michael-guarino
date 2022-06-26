@@ -55,10 +55,6 @@ export class ModalComponent implements OnInit {
     this.setForm()
   }
 
-  selectInput(){
-    console.log(document.querySelector('#carouselExampleIndicators input'));
-  }
-
   warning(prop: string, btnClk: boolean){
     return this.signUpForm.get(prop)!.invalid && btnClk === true
   }

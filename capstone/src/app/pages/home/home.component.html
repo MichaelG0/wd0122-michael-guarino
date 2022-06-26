@@ -1,8 +1,11 @@
+<app-hero></app-hero>
+
 <div class="album">
     <div class="container">
         <div class="row justify-content-center">
 
             <div class="col-lg-6 col-md-8 d-flex flex-wrap gap-3">
+                <button *ngIf="loggedUser" [routerLink]="['/new']" class="btn btn-dark pb-2"><i class="bi bi-plus"></i><span class="px-4">Post</span></button>
                 <app-post-card *ngFor="let post of posts" class="col-12" [post]="post"></app-post-card>
             </div>
 

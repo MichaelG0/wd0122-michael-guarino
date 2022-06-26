@@ -1,0 +1,27 @@
+<div class="container acc-settings">
+    <div class="row justify-content-center">
+        <div class="card shadow-sm col-xl-8 col-lg-9">
+            <div class="card-header">
+                <ul class="nav nav-tabs card-header-tabs">
+                    <li class="nav-item">
+                        <a [routerLink]="['/settings']" class="nav-link active">General</a>
+                    </li>
+                    <li class="nav-item">
+                        <a [routerLink]="['/settings/password']" class="nav-link">Password</a>
+                    </li>
+                </ul>
+            </div>
+            <form [formGroup]="accForm" (ngSubmit)="onSubmit(accForm)" class="card-body">
+                <h4 class="card-title">Account Settings</h4>
+                <hr>
+                <label for="username">Username</label>
+                <input formControlName="username" type="username" class="form-control" placeholder="Change your username" id="username">
+                <label for="email">Email</label>
+                <input formControlName="email" type="email" class="form-control" placeholder="Change your email" id="email">
+                <div class="text-end mt-4">
+                    <button class="btn btn-dark px-3 text-end" type="submit">Save</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
