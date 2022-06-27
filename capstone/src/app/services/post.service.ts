@@ -6,7 +6,7 @@ import { IPost } from '../interfaces/ipost';
   providedIn: 'root',
 })
 export class PostService {
-  apiUrl = 'http://localhost:4201/posts';
+  apiUrl = 'http://localhost:4201/posts/';
 
   constructor(private http: HttpClient) {}
 
@@ -16,6 +16,10 @@ export class PostService {
 
   getPosts(){
     return this.http.get(this.apiUrl)
+  }
+
+  editPostsOnUserEdit(id: number, postData: Partial<IPost>){
+    return this.http.patch(this.apiUrl + id, postData)
   }
 
 }

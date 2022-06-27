@@ -6,6 +6,7 @@ import { catchError, tap } from 'rxjs/operators';
 import { BehaviorSubject, of } from 'rxjs';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { IUserWithToken } from '../interfaces/iuser-with-token';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root',
@@ -14,11 +15,12 @@ export class UserService {
   apiUrl = 'http://localhost:4201/';
 
   jwtHelper = new JwtHelperService();
+  autoLogoutTimer: any
 
   private loggedUser = new BehaviorSubject<null | IUserWithToken>(null);
   loggedObs = this.loggedUser.asObservable();
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private router: Router) {
     this.restore();
   }
 
@@ -32,6 +34,7 @@ export class UserService {
       return;
     }
     this.loggedUser.next(user);
+    this.autoLogout(user.accessToken)
   }
 
   signUp(user: IUser) {
@@ -47,6 +50,7 @@ export class UserService {
     return this.http.post<IUserWithToken>(this.apiUrl + 'login', authData).pipe(
       tap((res) => {
         localStorage.setItem('user', JSON.stringify(res));
+        this.autoLogout(res.accessToken)
         this.loggedUser.next(res);
       }),
       catchError(() => of(true))
@@ -56,6 +60,29 @@ export class UserService {
   logout() {
     localStorage.removeItem('user');
     this.loggedUser.next(null);
+    this.router.navigate(['/'])
+  }
+
+  editUser(id: number, userData: IUser){
+    return this.http.patch<IUser>(this.apiUrl + 'users/' + id, userData).pipe(
+      tap((res: any) => {
+        const user: IUserWithToken = {
+          accessToken: JSON.parse(localStorage.getItem('user')!).accessToken,
+          user: res
+        }
+        localStorage.setItem('user', JSON.stringify(user))
+        this.loggedUser.next(user)
+      })
+    );
+  }
+
+  autoLogout(at: string) {
+    const exDate = this.jwtHelper.getTokenExpirationDate(at) as Date;
+    const exMs = exDate.getTime() - new Date().getTime()
+
+    this.autoLogoutTimer = setTimeout(() => {
+      this.logout();
+    }, exMs)
   }
 
 }

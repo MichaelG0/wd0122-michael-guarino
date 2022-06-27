@@ -13,7 +13,7 @@ export class NavComponent implements OnInit {
   user: User = new User
   loggedUser: null | IUserWithToken = null
 
-  constructor(private userSrv: UserService, private router: Router) { }
+  constructor(private userSrv: UserService) { }
 
   ngOnInit(): void {
     this.userSrv.loggedObs.subscribe((res)=>{
@@ -23,7 +23,6 @@ export class NavComponent implements OnInit {
 
   logout(){
     this.userSrv.logout()
-    this.router.navigate(['/'])
   }
 
 }

@@ -4,7 +4,9 @@
       "email": "admin@admin.it",
       "password": "$2a$10$ShaLsc9vFy1vdlgl3s6EveOw.38YaSEU/sx1mQmyxL8FkB5GZ3c7y",
       "username": "admin",
-      "id": 1
+      "id": 1,
+      "name": null,
+      "surname": null
     },
     {
       "email": "lota@mailinator.com",
@@ -48,7 +50,7 @@
       "title": "Nihil voluptas nobis",
       "caption": "Aut a irure eos labo",
       "id": 2,
-      "user": "Perferendis"
+      "user": "admin"
     },
     {
       "title": "Sint aut quisquam mi",
