@@ -174,3 +174,32 @@ aside {
     border: 1px solid rgba(0, 0, 0, 0.125);
     border-radius: 0.25rem;
 }
+
+// ===========================ALERT===========================
+
+.alert {
+    position: fixed;
+    top: 4.2rem;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    width: 300px;
+    max-width: 90%;
+    opacity: 0;
+    z-index: 1080;
+    animation: alert 3s;
+}
+
+@keyframes alert {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    15%, 80% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    100% {
+        opacity: 0;
+    }
+}

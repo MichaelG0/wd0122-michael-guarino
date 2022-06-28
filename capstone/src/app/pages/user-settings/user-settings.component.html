@@ -1,7 +1,17 @@
 <div [ngClass]="loading ? 'd-block' : 'd-none'" id="loading">
     <svg class="spinner" viewBox="0 0 50 50">
-    <circle class="path" cx="25" cy="25" r="20" fill="none" stroke-width="5"></circle>
+        <circle class="path" cx="25" cy="25" r="20" fill="none" stroke-width="5"></circle>
     </svg>
+</div>
+
+<div [ngClass]="sucAlert ? 'd-flex' : 'd-none'" class="alert alert-success align-items-center" role="alert">
+    <i class="bi bi-check-circle-fill d-flex me-2"></i>
+    <span>Changes saved</span>
+</div>
+
+<div [ngClass]="warAlert ? 'd-flex' : 'd-none'" class="alert alert-warning align-items-center" role="alert">
+    <i class="bi bi-exclamation-circle-fill me-2"></i>
+    <span>Operation failed</span>
 </div>
 
 <div class="container">
@@ -21,50 +31,81 @@
                 <h5 class="card-title">Account Settings</h5>
                 <hr>
 
-                <form *ngIf="page === 1" [formGroup]="genForm" (ngSubmit)="onSubmit(genForm)">
-                    <label for="username">Username</label>
-                    <input formControlName="username" type="username" class="form-control" placeholder="Username" id="username">
-                    <label for="email">Email</label>
-                    <input formControlName="email" type="email" class="form-control" placeholder="Email" id="email">
-                    <label for="name">Name</label>
-                    <input formControlName="name" type="name" class="form-control" placeholder="Name" id="name">
-                    <label for="surname">Surname</label>
-                    <input formControlName="surname" type="surname" class="form-control" placeholder="Surname" id="surname">
-                    <label for="list">Your Role</label><span> (Choose up to three)</span>
-                    <div class="list-group" id="list">
-                        <label class="list-group-item">
-                            <input class="form-check-input me-1" type="checkbox" value="">
-                            First checkbox
-                        </label>
-                        <label class="list-group-item">
-                            <input class="form-check-input me-1" type="checkbox" value="">
-                            Second checkbox
-                        </label>
-                        <label class="list-group-item">
-                            <input class="form-check-input me-1" type="checkbox" value="">
-                            Third checkbox
-                        </label>
-                        <label class="list-group-item">
-                            <input class="form-check-input me-1" type="checkbox" value="">
-                            Fourth checkbox
-                        </label>
-                        <label class="list-group-item">
-                            <input class="form-check-input me-1" type="checkbox" value="">
-                            Fifth checkbox
-                        </label>
+                <div *ngIf="page === 1">
+                    <form [formGroup]="genForm" (ngSubmit)="onSubmit(genForm)">
+                        <label for="username">Username</label>
+                        <input formControlName="username" type="username" class="form-control" placeholder="Username"
+                            id="username">
+                        <label for="email">Email</label>
+                        <input formControlName="email" type="email" class="form-control" placeholder="Email" id="email">
+                        <label for="name">Name</label>
+                        <input formControlName="name" type="name" class="form-control" placeholder="Name" id="name">
+                        <label for="surname">Surname</label>
+                        <input formControlName="surname" type="surname" class="form-control" placeholder="Surname"
+                            id="surname">
+                        <label for="list">Your Role</label><span> (Choose up to three)</span>
+                        <div class="list-group" id="list">
+                            <label class="list-group-item">
+                                <input class="form-check-input me-1" type="checkbox" value=""> First checkbox
+                            </label>
+                            <label class="list-group-item">
+                                <input class="form-check-input me-1" type="checkbox" value=""> Second checkbox
+                            </label>
+                            <label class="list-group-item">
+                                <input class="form-check-input me-1" type="checkbox" value=""> Third checkbox
+                            </label>
+                            <label class="list-group-item">
+                                <input class="form-check-input me-1" type="checkbox" value=""> Fourth checkbox
+                            </label>
+                            <label class="list-group-item">
+                                <input class="form-check-input me-1" type="checkbox" value=""> Fifth checkbox
+                            </label>
+                        </div>
+                        <div class="text-end mt-4">
+                            <button class="btn btn-dark px-3 text-end" type="submit">Save</button>
+                        </div>
+                    </form>
+                    <hr>
+    
+                    <div class="text-end">
+                        <a class="link-danger text-decoration-none fw-bold" role="button" data-bs-toggle="modal"
+                            data-bs-target="#delUserModal">
+                            <i class="bi bi-trash-fill"></i> Delete Account
+                        </a>
                     </div>
-                    <div class="text-end mt-4">
-                        <button class="btn btn-dark px-3 text-end" type="submit">Save</button>
+                    <div class="modal fade" id="delUserModal" tabindex="-1" aria-labelledby="delUserModalLabel"
+                        aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="delUserModalLabel">Delete Account</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                        aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    Do you really want to delete your account?
+                                </div>
+                                <div class="modal-footer justify-content-end">
+                                    <a class="btn btn-outline-dark" class="link-secondary text-decoration-none fw-bold me-3"
+                                        role="button" data-bs-dismiss="modal">Cancel</a>
+                                    <a (click)="deleteUser()" class="link-danger text-decoration-none fw-bold"
+                                        role="button">Delete Account</a>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                </form>
+                </div>
 
                 <form *ngIf="page === 2" [formGroup]="pswForm" (ngSubmit)="onSubmit(pswForm)">
                     <label for="cur-psw">Current Password</label>
-                    <input formControlName="curPsw" type="cur-psw" class="form-control" placeholder="Password" id="cur-psw">
+                    <input formControlName="curPsw" type="cur-psw" class="form-control" placeholder="Password"
+                        id="cur-psw">
                     <label for="new-psw">New Password</label>
-                    <input formControlName="newPsw" type="new-psw" class="form-control" placeholder="Password" id="new-psw">
+                    <input formControlName="newPsw" type="new-psw" class="form-control" placeholder="Password"
+                        id="new-psw">
                     <label for="conf-psw">Confirm New Password</label>
-                    <input formControlName="confPsw" type="conf-psw" class="form-control" placeholder="Password" id="conf-psw">
+                    <input formControlName="confPsw" type="conf-psw" class="form-control" placeholder="Password"
+                        id="conf-psw">
                     <div class="text-end mt-4">
                         <button class="btn btn-dark px-3 text-end" type="submit">Save</button>
                     </div>

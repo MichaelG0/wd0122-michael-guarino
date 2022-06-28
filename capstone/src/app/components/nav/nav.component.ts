@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 import { IUserWithToken } from 'src/app/interfaces/iuser-with-token';
 import { User } from 'src/app/interfaces/user';
 import { UserService } from 'src/app/services/user.service';

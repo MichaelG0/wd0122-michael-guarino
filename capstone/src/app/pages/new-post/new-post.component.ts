@@ -33,7 +33,7 @@ export class NewPostComponent implements OnInit {
       const post: IPost = {
         title: form.value.title,
         caption: form.value.caption,
-        user: this.loggedUser?.user.username
+        userid: this.loggedUser!.user.id
       };
       this.postSrv.newPost(post).subscribe(() => {
         this.router.navigate(['/'])

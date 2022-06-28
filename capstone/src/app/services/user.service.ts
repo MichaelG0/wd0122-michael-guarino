@@ -63,7 +63,7 @@ export class UserService {
     this.router.navigate(['/'])
   }
 
-  editUser(id: number, userData: IUser){
+  editUser(id: number, userData: IUser) {
     return this.http.patch<IUser>(this.apiUrl + 'users/' + id, userData).pipe(
       tap((res: any) => {
         const user: IUserWithToken = {
@@ -72,8 +72,17 @@ export class UserService {
         }
         localStorage.setItem('user', JSON.stringify(user))
         this.loggedUser.next(user)
-      })
+      }),
+      catchError(() => of(false))
     );
+  }
+
+  getUser(id: number) {
+    return this.http.get(this.apiUrl + 'users/' + id)
+  }
+
+  deleteUser(id: number) {
+    return this.http.delete(this.apiUrl + 'users/' + id)
   }
 
   autoLogout(at: string) {

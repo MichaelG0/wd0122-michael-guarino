@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { IPost } from 'src/app/interfaces/ipost';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-post-card',
@@ -8,10 +9,18 @@ import { IPost } from 'src/app/interfaces/ipost';
 })
 export class PostCardComponent implements OnInit {
   @Input() post!: IPost
+  postUser!: string
 
-  constructor() { }
+  constructor(private userSrv: UserService) { }
 
   ngOnInit(): void {
+    this.getUser()
+  }
+
+  getUser() {
+    this.userSrv.getUser(this.post.userid).subscribe((res: any) => {
+      this.postUser = res.username
+    })
   }
 
 }

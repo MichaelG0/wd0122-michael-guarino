@@ -18,8 +18,8 @@ export class PostService {
     return this.http.get(this.apiUrl)
   }
 
-  editPostsOnUserEdit(id: number, postData: Partial<IPost>){
-    return this.http.patch(this.apiUrl + id, postData)
-  }
+  // editPostsOnUserEdit(id: number, postData: Partial<IPost>){
+  //   return this.http.patch(this.apiUrl + id, postData)
+  // }
 
 }

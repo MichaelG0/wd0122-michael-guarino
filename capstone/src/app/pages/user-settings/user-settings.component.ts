@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { IUser } from 'src/app/interfaces/iuser';
 import { IUserWithToken } from 'src/app/interfaces/iuser-with-token';
-import { PostService } from 'src/app/services/post.service';
 import { UserService } from 'src/app/services/user.service';
+declare var bootstrap: any
 
 @Component({
   selector: 'app-user-settings',
@@ -16,8 +16,11 @@ export class UserSettingsComponent implements OnInit {
   page: number = 1
   loggedUser: null | IUserWithToken = null
   loading: boolean = false
+  sucAlert: boolean = false
+  warAlert: boolean = false
+  case: number = 0
 
-  constructor(private userSrv: UserService, private postSrv: PostService, private fb: FormBuilder) { }
+  constructor(private userSrv: UserService, private fb: FormBuilder) { }
 
   ngOnInit(): void {
     this.userSrv.loggedObs.subscribe((res)=>{
@@ -37,27 +40,43 @@ export class UserSettingsComponent implements OnInit {
   }
 
   onSubmit(form: FormGroup) {
-    const curUsername = this.loggedUser!.user.username
+    // const curUsername = this.loggedUser!.user.username
+    this.sucAlert = false
+    this.warAlert = false
     if (form.valid) {
-      const user: IUser = {
+      const userData: IUser = {
         username: form.value.username,
         email: form.value.email,
         name: form.value.name,
         surname: form.value.surname,
       };
       this.loading = true
-      this.userSrv.editUser(this.loggedUser!.user.id, user).subscribe(() => {
-        this.postSrv.getPosts().subscribe((posts: any) => {
-          for (let post of posts) {
-            if (post.user === curUsername) {
-              this.postSrv.editPostsOnUserEdit(post.id, {user: this.loggedUser!.user.username}).subscribe(() => {
-                this.loading = false
-              })
-            }
-          }
-        })
+      this.userSrv.editUser(this.loggedUser!.user.id, userData).subscribe(res => {
+        res ? this.sucAlert = true : this.warAlert = true
+        this.loading = false
       })
+
+      // this.userSrv.editUser(this.loggedUser!.user.id, user).subscribe(() => {
+      //   this.postSrv.getPosts().subscribe((posts: any) => {
+      //     for (let post of posts) {
+      //       if (post.user === curUsername) {
+      //         this.postSrv.editPostsOnUserEdit(post.id, {user: this.loggedUser!.user.username}).subscribe(() => {
+      //           this.loading = false
+      //         })
+      //       }
+      //     }
+      //   })
+      // })
     }
+  }
+
+  deleteUser() {
+    this.userSrv.deleteUser(this.loggedUser!.user.id).subscribe(() => {
+      const delMdlEl = document.querySelector('#delUserModal')
+      const deleteModal = bootstrap.Modal.getInstance(delMdlEl)
+      deleteModal.hide()
+      this.userSrv.logout()
+    })
   }
 
 }
