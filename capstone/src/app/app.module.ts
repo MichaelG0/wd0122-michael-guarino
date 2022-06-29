@@ -9,13 +9,15 @@ import { NavComponent } from './components/nav/nav.component';
 import { ModalComponent } from './components/modal/modal.component';
 import { LoginModalComponent } from './components/login-modal/login-modal.component';
 import { AuthInterceptor } from './auth/auth.interceptor';
+import { OffcanvasNavComponent } from './components/offcanvas-nav/offcanvas-nav.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavComponent,
     ModalComponent,
-    LoginModalComponent
+    LoginModalComponent,
+    OffcanvasNavComponent
   ],
   imports: [
     BrowserModule,

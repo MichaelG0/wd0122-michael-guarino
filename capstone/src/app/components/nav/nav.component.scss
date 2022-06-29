@@ -9,32 +9,112 @@
 }
 
 .nav-link {
-    background: linear-gradient(currentColor 0 0)
-        bottom left/
-        var(--underline-width, 0%) 0.1em
-        no-repeat;
+    background: linear-gradient(currentColor 0 0) bottom left/ var(--underline-width, 0%) 0.1em no-repeat;
     transition: background-size 0.5s;
 }
 
-.nav-link:hover, .nav-link.active {
+.nav-link:hover,
+.nav-link.active {
     --underline-width: 100%;
 }
 
 #dropdownUser1 {
-    padding: 3px 12px 3px 6px;
+    padding: 0;
     border: 1px solid rgba(0, 0, 0, 0);
-    border-radius: 5rem;
+    border-radius: 20rem;
     transition: all .07s ease-out;
-    &:hover, &:focus {
-        border: 1px solid rgba(0, 0, 0, 0.125);
-    }
+
 
     #avatar-box {
         display: inline-block;
-        height: 32px;
-        width: 32px;
+        height: 38px;
+        width: 38px;
         border-radius: 20rem;
         background: url(../../../assets/avatar.png) center;
-        background-size: 40px;
+        background-size: 46px;
+
+        &:hover {
+            border: 1px solid rgba(0, 0, 0, 0.125);
+        }
+    }
+}
+
+#lgn-btn,
+#nav-links,
+#src-bar,
+#upload-btn span,
+#dropdownUser1 span {
+    display: none;
+}
+
+#sandwich {
+    display: flex;
+    align-items: center;
+    font-size: 2rem;
+    height: 2.5rem;
+}
+
+#logo {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    left: 0;
+    right: 0;
+    top: 0.8rem;
+    pointer-events: none;
+
+    a {
+        pointer-events: auto
+    }
+}
+
+// ===========================MEDIA QUERY===========================
+
+@media screen and (min-width: 576px) {
+    #src-bar {
+        display: flex;
+    }
+
+    #logo {
+        position: initial;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    #lgn-btn {
+        display: inline-block;
+    }
+
+    #dropdownUser1 {
+        padding: 3px 12px 3px 6px;
+
+        &:hover {
+            border: 1px solid rgba(0, 0, 0, 0.125);
+        }
+
+        #avatar-box {
+            height: 32px;
+            width: 32px;
+            background-size: 40px;
+
+            &:hover {
+                border: none;
+            }
+        }
+    }
+
+    #upload-btn span,
+    #dropdownUser1 span {
+        display: initial;
+    }
+}
+
+@media screen and (min-width: 992px) {
+    #nav-links {
+        display: flex;
+    }
+
+    #sandwich {
+        display: none;
     }
 }

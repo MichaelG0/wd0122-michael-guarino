@@ -40,7 +40,6 @@ export class UserSettingsComponent implements OnInit {
   }
 
   onSubmit(form: FormGroup) {
-    // const curUsername = this.loggedUser!.user.username
     this.sucAlert = false
     this.warAlert = false
     if (form.valid) {
@@ -55,18 +54,6 @@ export class UserSettingsComponent implements OnInit {
         res ? this.sucAlert = true : this.warAlert = true
         this.loading = false
       })
-
-      // this.userSrv.editUser(this.loggedUser!.user.id, user).subscribe(() => {
-      //   this.postSrv.getPosts().subscribe((posts: any) => {
-      //     for (let post of posts) {
-      //       if (post.user === curUsername) {
-      //         this.postSrv.editPostsOnUserEdit(post.id, {user: this.loggedUser!.user.username}).subscribe(() => {
-      //           this.loading = false
-      //         })
-      //       }
-      //     }
-      //   })
-      // })
     }
   }
 
