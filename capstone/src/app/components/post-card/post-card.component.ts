@@ -9,7 +9,8 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class PostCardComponent implements OnInit {
   @Input() post!: IPost
-  postUser!: string
+  postUsername!: string
+  postUserId!: number
 
   constructor(private userSrv: UserService) { }
 
@@ -19,7 +20,8 @@ export class PostCardComponent implements OnInit {
 
   getUser() {
     this.userSrv.getUser(this.post.userid).subscribe((res: any) => {
-      this.postUser = res.username
+      this.postUsername = res.username
+      this.postUserId = res.id
     })
   }
 

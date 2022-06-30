@@ -1,6 +1,8 @@
 <div class="card shadow-sm">
     <div class="card-body">
-        <h6 class="card-subtitle mb-2 text-muted">{{postUser}}</h6>
+        <a [routerLink]="[postUserId, 'user']" class="text-decoration-none">
+            <h6 class="card-subtitle mb-2 text-muted">{{postUsername}}</h6>
+        </a>
         <h5 class="card-title">{{post.title}}</h5>
         <p class="card-text">{{post.caption}}</p>
     </div>
