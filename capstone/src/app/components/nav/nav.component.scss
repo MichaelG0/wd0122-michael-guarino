@@ -26,15 +26,22 @@
 
 
     #avatar-box {
-        display: inline-block;
+        display: flex;
+        justify-content: center;
+        align-items: center;
         height: 38px;
         width: 38px;
         border-radius: 20rem;
         background: url(../../../assets/avatar.png) center;
         background-size: 46px;
+        overflow: hidden;
 
         &:hover {
             border: 1px solid rgba(0, 0, 0, 0.125);
+        }
+
+        img{
+            height: inherit;
         }
     }
 }

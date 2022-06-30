@@ -25,4 +25,10 @@ export class OffcanvasNavComponent implements OnInit {
     offcanvasNav.hide()
   }
 
+  onResizeDismiss() {
+    const offcNavEl = document.querySelector('#offcanvasNav')
+    const offcanvasNav = bootstrap.Offcanvas.getInstance(offcNavEl)
+    if (window.innerWidth > 992) offcanvasNav.hide()
+  }
+
 }
