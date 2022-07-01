@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "capstone-94ac8": {
+      "hosting": {
+        "capstone": [
+          "capstone-94ac8"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "capstone-94ac8"
+  }
+}

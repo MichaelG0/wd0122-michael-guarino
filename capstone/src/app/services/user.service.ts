@@ -78,7 +78,9 @@ export class UserService {
   }
 
   getUser(id: number) {
-    return this.http.get(this.apiUrl + 'users/' + id)
+    return this.http.get(this.apiUrl + 'users/' + id).pipe(
+      catchError(() => of(false))
+    )
   }
 
   deleteUser(id: number) {
