@@ -11,11 +11,6 @@ import { LoginModalComponent } from './components/login-modal/login-modal.compon
 import { AuthInterceptor } from './auth/auth.interceptor';
 import { OffcanvasNavComponent } from './components/offcanvas-nav/offcanvas-nav.component';
 
-import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
-import { environment } from '../environments/environment';
-import { provideAuth,getAuth } from '@angular/fire/auth';
-import { provideFirestore,getFirestore } from '@angular/fire/firestore';
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,10 +23,7 @@ import { provideFirestore,getFirestore } from '@angular/fire/firestore';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    ReactiveFormsModule,
-    provideFirebaseApp(() => initializeApp(environment.firebase)),
-    provideAuth(() => getAuth()),
-    provideFirestore(() => getFirestore())
+    ReactiveFormsModule
   ],
   providers: [
     {

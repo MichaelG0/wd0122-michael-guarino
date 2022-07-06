@@ -83,6 +83,10 @@ export class UserService {
     )
   }
 
+  getUsers() {
+    return this.http.get(this.apiUrl + 'users')
+  }
+
   deleteUser(id: number) {
     return this.http.delete(this.apiUrl + 'users/' + id)
   }

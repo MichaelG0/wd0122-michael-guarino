@@ -12,6 +12,7 @@ import { UserService } from 'src/app/services/user.service';
 export class HomeComponent implements OnInit {
   loggedUser: null | IUserWithToken = null
   posts!: IPost[]
+  userIds!: number[]
 
   constructor(private userSrv: UserService, private postSrv: PostService) { }
 
@@ -19,11 +20,24 @@ export class HomeComponent implements OnInit {
     this.userSrv.loggedObs.subscribe((res)=>{
       this.loggedUser = res;
     })
+    this.getUsers()
     this.getPosts()
+  }
+
+  getUsers(){
+    this.userSrv.getUsers().subscribe((res: any) => {
+      const userrIds: number[] = []
+      for (let user of res){
+        userrIds.push(user.id)
+      }
+      this.userIds = userrIds
+    })
   }
 
   getPosts(){
     this.postSrv.getPosts().subscribe((res: any) => {
+      // I check that the posts' authors still exist
+      // const posts = res.filter((post: IPost) => this.userIds.includes(post.userid))
       this.posts = res.reverse()      
     })
   }

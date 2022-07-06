@@ -1,7 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { forkJoin } from 'rxjs';
+import { IPost } from 'src/app/interfaces/ipost';
 import { IUser } from 'src/app/interfaces/iuser';
 import { IUserWithToken } from 'src/app/interfaces/iuser-with-token';
+import { PostService } from 'src/app/services/post.service';
 import { UserService } from 'src/app/services/user.service';
 declare var bootstrap: any
 
@@ -19,13 +23,15 @@ export class UserSettingsComponent implements OnInit {
   sucAlert: boolean = false
   warAlert: boolean = false
   case: number = 0
+  userPostsIds!: number[]
 
-  constructor(private userSrv: UserService, private fb: FormBuilder) { }
+  constructor(private userSrv: UserService, private postSrv: PostService, private fb: FormBuilder, private router: Router) { }
 
   ngOnInit(): void {
     this.userSrv.loggedObs.subscribe((res)=>{
       this.loggedUser = res;
     })
+    this.getUserPosts()
     this.genForm = this.fb.group({
       username: [this.loggedUser?.user.username, [Validators.required, Validators.pattern('^(?=.*[a-zA-Z]{1,})(?=.*[\d]{0,})[a-zA-Z0-9_]{3,20}$')]],
       email: [this.loggedUser?.user.email, [Validators.required, Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$')]],
@@ -57,8 +63,22 @@ export class UserSettingsComponent implements OnInit {
     }
   }
 
+  getUserPosts() {
+    const userPostsIds: number[] = []
+    this.postSrv.getPosts().subscribe((res: any) => {
+      res = res.filter((post: IPost) => post.userid == this.loggedUser!.user.id)
+      for (let post of res) {
+        userPostsIds.push(post.id);
+      }
+      this.userPostsIds = userPostsIds
+    });
+  }
+
   deleteUser() {
-    this.userSrv.deleteUser(this.loggedUser!.user.id).subscribe(() => {
+    forkJoin([
+      this.postSrv.deletePosts(this.userPostsIds),
+      this.userSrv.deleteUser(this.loggedUser!.user.id)
+    ]).subscribe(() => {
       const delMdlEl = document.querySelector('#delUserModal')
       const deleteModal = bootstrap.Modal.getInstance(delMdlEl)
       deleteModal.hide()

@@ -5,8 +5,8 @@
       "password": "$2a$10$ShaLsc9vFy1vdlgl3s6EveOw.38YaSEU/sx1mQmyxL8FkB5GZ3c7y",
       "username": "admin",
       "id": 1,
-      "name": "",
-      "surname": ""
+      "name": "Admin",
+      "surname": "Admin"
     },
     {
       "email": "lota@mailinator.com",
@@ -135,12 +135,6 @@
       "caption": "Delectus quasi est Delectus quasi est Delectus quasi est Delectus quasi est Delectus quasi est Delectus quasi est Delectus quasi est Delectus quasi est Delectus quasi est Delectus quasi est Delectus quasi est Delectus quasi est Delectus quasi est Delectus quasi est Delectus quasi est Delectus quasi est Delectus quasi est Delectus quasi est Delectus quasi est Delectus quasi est Delectus quasi est Delectus quasi est Delectus quasi est Delectus quasi est Delectus quasi est Delectus quasi est Delectus quasi est Delectus quasi est Delectus quasi est Delectus quasi est Delectus quasi est Delectus quasi est Delectus quasi est Delectus quasi est Delectus quasi est Delectus quasi est Delectus quasi est Delectus quasi est Delectus quasi est ",
       "userid": 1,
       "id": 16
-    },
-    {
-      "title": "Et tempor odio harum",
-      "caption": "Sed eos odio ut Nam",
-      "userid": 7,
-      "id": 17
     }
   ]
 }
