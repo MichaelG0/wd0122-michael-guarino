@@ -57,10 +57,10 @@ export class UserService {
     );
   }
 
-  logout() {
+  logout(navData?: boolean) {
     localStorage.removeItem('user');
     this.loggedUser.next(null);
-    this.router.navigate(['/'])
+    this.router.navigate([''], {state: {data: navData}})
   }
 
   editUser(id: number, userData: IUser) {

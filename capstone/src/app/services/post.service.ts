@@ -21,7 +21,7 @@ export class PostService {
 
   deletePosts(ids: number[]) {
     return from(ids).pipe(
-      concatMap(id => this.http.delete(this.apiUrl + id))
-    )
+      concatMap((id) => this.http.delete(this.apiUrl + id))
+    );
   }
 }

@@ -12,6 +12,7 @@ body {
 
 a {
     cursor: pointer !important;
+    text-decoration: none;
 }
 
 // ===========================BUTTONS===========================
@@ -58,6 +59,7 @@ a {
 input,
 textarea {
     box-shadow: none !important;
+    font-size: .93rem !important;
 
     &:focus:not(.warning, .success) {
         border-color: #2b30359c !important;
@@ -165,9 +167,20 @@ textarea {
     }
 }
 
-// ===========================ASIDE===========================
+// ===========================POSTS===========================
+
+#pag-content-wrp{
+    max-width: 1000px;
+}
+
+.card, aside {
+    font-size: .93rem;
+}
 
 aside {
+    position: sticky;
+    top: calc(100vh - 962px);
+    height: fit-content;
     background-color: #fff;
     box-shadow: 0 0.125rem 0.25rem rgb(0 0 0 / 8%);
     background-clip: border-box;

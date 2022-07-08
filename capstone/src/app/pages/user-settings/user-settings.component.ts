@@ -7,7 +7,6 @@ import { IUser } from 'src/app/interfaces/iuser';
 import { IUserWithToken } from 'src/app/interfaces/iuser-with-token';
 import { PostService } from 'src/app/services/post.service';
 import { UserService } from 'src/app/services/user.service';
-declare var bootstrap: any
 
 @Component({
   selector: 'app-user-settings',
@@ -23,9 +22,9 @@ export class UserSettingsComponent implements OnInit {
   sucAlert: boolean = false
   warAlert: boolean = false
   case: number = 0
-  userPostsIds!: number[]
+  userPostsIds: number[] = []
 
-  constructor(private userSrv: UserService, private postSrv: PostService, private fb: FormBuilder, private router: Router) { }
+  constructor(private userSrv: UserService, private postSrv: PostService, private fb: FormBuilder) { }
 
   ngOnInit(): void {
     this.userSrv.loggedObs.subscribe((res)=>{
@@ -75,14 +74,16 @@ export class UserSettingsComponent implements OnInit {
   }
 
   deleteUser() {
-    forkJoin([
-      this.postSrv.deletePosts(this.userPostsIds),
-      this.userSrv.deleteUser(this.loggedUser!.user.id)
-    ]).subscribe(() => {
-      const delMdlEl = document.querySelector('#delUserModal')
-      const deleteModal = bootstrap.Modal.getInstance(delMdlEl)
-      deleteModal.hide()
-      this.userSrv.logout()
+    this.sucAlert = false
+    this.loading = true
+    const obsArr = [this.userSrv.deleteUser(this.loggedUser!.user.id)]
+    if (this.userPostsIds.length > 0)
+      obsArr.push(this.postSrv.deletePosts(this.userPostsIds))
+    
+    forkJoin(obsArr).subscribe(() => {
+      this.sucAlert = true
+      this.loading = false
+      this.userSrv.logout(this.sucAlert)
     })
   }
 

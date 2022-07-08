@@ -1,16 +1,24 @@
+<div [ngClass]="sucAlert ? 'd-flex' : 'd-none'" class="alert alert-success align-items-center" role="alert">
+    <i class="bi bi-check-circle-fill d-flex me-2"></i>
+    <span>Your account has been deleted</span>
+</div>
+
 <app-hero></app-hero>
 
-<div class="album">
-    <div class="container">
-        <div class="row justify-content-center">
 
-            <div class="col-lg-6 col-md-8 d-flex flex-wrap gap-3">
+<div class="container d-flex justify-content-center">
+
+
+        <div id="pag-content-wrp" class="row justify-content-center">
+            <div class="col-md-8 d-flex flex-wrap gap-3">
                 <button *ngIf="loggedUser" [routerLink]="['/new']" class="btn btn-dark pb-2"><i class="bi bi-plus"></i><span class="px-4">Post</span></button>
-                <app-post-card *ngFor="let post of posts" class="col-12" [post]="post"></app-post-card>
+                <app-post-card *ngFor="let post of posts; let i = index" [post]="post" [i]="i" class="col-12"></app-post-card>
             </div>
 
-            <aside class="col-4 col-lg-3"></aside>
+            <aside class="col-4 col-lg-3">
+                <p class="py-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis aliquid harum quas accusantium maxime dolores velit delectus, incidunt explicabo obcaecati, quam eveniet illo animi aut non provident doloremque nostrum voluptatibus? Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis aliquid harum quas accusantium maxime dolores velit delectus, incidunt explicabo obcaecati, quam eveniet illo animi aut non provident doloremque nostrum voluptatibus? Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis aliquid harum quas accusantium maxime dolores velit delectus, incidunt explicabo obcaecati, quam eveniet illo animi aut non provident doloremque nostrum voluptatibus? Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis aliquid harum quas accusantium maxime dolores velit delectus, incidunt explicabo obcaecati, quam eveniet illo animi aut non provident doloremque nostrum voluptatibus?</p>
+            </aside>
 
         </div>
-    </div>
+
 </div>

@@ -9,6 +9,7 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class PostCardComponent implements OnInit {
   @Input() post!: IPost
+  @Input() i!: number
   postUsername!: string
   postUserId!: number
 
@@ -23,6 +24,11 @@ export class PostCardComponent implements OnInit {
       this.postUsername = res.username
       this.postUserId = res.id
     })
+  }
+
+  autogrow(e: any){
+    e.target.style.height = '0px';
+    e.target.style.height = e.target.scrollHeight + 'px';
   }
 
 }

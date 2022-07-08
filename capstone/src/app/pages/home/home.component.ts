@@ -13,6 +13,7 @@ export class HomeComponent implements OnInit {
   loggedUser: null | IUserWithToken = null
   posts!: IPost[]
   userIds!: number[]
+  sucAlert: boolean = false
 
   constructor(private userSrv: UserService, private postSrv: PostService) { }
 
@@ -22,6 +23,7 @@ export class HomeComponent implements OnInit {
     })
     this.getUsers()
     this.getPosts()
+    this.sucAlert = history.state.data || false
   }
 
   getUsers(){
