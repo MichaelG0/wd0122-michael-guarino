@@ -12,7 +12,17 @@
             <i class="bi bi-chat me-2"></i>Reply
         </a>
         <div (input)="autogrow($event)" class="collapse" id="commentArea{{i}}">
-            <textarea class="form-control"></textarea>
+            <form [formGroup]="commentForm" (ngSubmit)="onSubmit(commentForm)" class="position-relative">
+                <textarea formControlName="comment" type="text" class="form-control"></textarea>
+                <div class="text-end my-2">
+                    <button id="comment-btn" class="btn btn-link px-3" type="submit" [disabled]="commentForm.invalid">
+                        <span *ngIf="!loading">Post</span>
+                        <svg *ngIf="loading" class="spinner" viewBox="0 0 50 50">
+                            <circle class="path" cx="25" cy="25" r="20" fill="none" stroke-width="5"></circle>
+                        </svg>
+                    </button>
+                </div>
+            </form>
 
         </div>
     </div>

@@ -1,5 +1,16 @@
 textarea {
     resize: none;
-    min-height: 4rem;
+    overflow: hidden;
+    height: 3rem;
+    min-height: 3rem;
     max-height: 180px;
+    padding-right: 3.4rem;
+}
+
+#comment-btn {
+    position: absolute;
+    top: 50%;
+    right: -4px;
+    margin: auto;
+    transform: translate(0, -50%)
 }

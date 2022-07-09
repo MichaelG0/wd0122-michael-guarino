@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { IPost } from 'src/app/interfaces/ipost';
 import { UserService } from 'src/app/services/user.service';
 
@@ -12,11 +13,14 @@ export class PostCardComponent implements OnInit {
   @Input() i!: number
   postUsername!: string
   postUserId!: number
+  commentForm!: FormGroup
+  loading: boolean = false
 
-  constructor(private userSrv: UserService) { }
+  constructor(private userSrv: UserService, private fb: FormBuilder) { }
 
   ngOnInit(): void {
     this.getUser()
+    this.setForm()
   }
 
   getUser() {
@@ -26,9 +30,28 @@ export class PostCardComponent implements OnInit {
     })
   }
 
-  autogrow(e: any){
+  setForm() {
+    this.loading = false
+    this.commentForm = this.fb.group({
+      comment: ['', [Validators.required, Validators.minLength(1)]],
+    });
+  }
+
+  onSubmit(form: FormGroup){
+
+  }
+
+  autogrow(e: any) {
+    const commentBtn = document.getElementById('comment-btn')
     e.target.style.height = '0px';
     e.target.style.height = e.target.scrollHeight + 'px';
+    if (parseInt(e.target.style.height) > 180) {
+      e.target.style.overflowY = 'scroll'
+      commentBtn!.style.right = 10 + 'px'
+    } else {
+      e.target.style.overflowY = 'hidden'
+      commentBtn!.style.right = -4 + 'px'
+    }
   }
 
 }
