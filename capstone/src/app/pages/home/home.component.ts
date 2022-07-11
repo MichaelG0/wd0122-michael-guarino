@@ -18,7 +18,7 @@ export class HomeComponent implements OnInit {
   constructor(private userSrv: UserService, private postSrv: PostService) { }
 
   ngOnInit(): void {
-    this.userSrv.loggedObs.subscribe((res)=>{
+    this.userSrv.loggedObs.subscribe((res) => {
       this.loggedUser = res;
     })
     this.getUsers()

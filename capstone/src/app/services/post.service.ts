@@ -19,9 +19,18 @@ export class PostService {
     return this.http.get(this.apiUrl);
   }
 
+  getPost(id: number) {
+    return this.http.get(this.apiUrl + id)
+  }
+
   deletePosts(ids: number[]) {
     return from(ids).pipe(
       concatMap((id) => this.http.delete(this.apiUrl + id))
     );
   }
+
+  newComment(id: number, comment: Partial<IPost>) {
+    return this.http.patch(this.apiUrl + id, comment);
+  }
+
 }

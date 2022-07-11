@@ -15,6 +15,10 @@ a {
     text-decoration: none;
 }
 
+* {
+    word-break: break-word;
+}
+
 // ===========================BUTTONS===========================
 
 .btn {
@@ -182,6 +186,7 @@ textarea {
 }
 
 aside {
+    display: none;
     position: sticky;
     top: calc(100vh - 962px);
     height: fit-content;
@@ -190,6 +195,12 @@ aside {
     background-clip: border-box;
     border: 1px solid rgba(0, 0, 0, 0.125);
     border-radius: 0.25rem;
+}
+
+@media screen and (min-width: 768px) {
+    aside {
+        display: initial;
+    }
 }
 
 // ===========================ALERT===========================

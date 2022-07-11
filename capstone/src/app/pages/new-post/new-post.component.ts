@@ -23,7 +23,7 @@ export class NewPostComponent implements OnInit {
     })
 
     this.postForm = this.fb.group({
-      title: ['', [Validators.required, Validators.minLength(1)]],
+      title: ['', [Validators.required, Validators.minLength(1), Validators.maxLength(49)]],
       caption: ['', [Validators.required, Validators.minLength(1)]]
     });
   }

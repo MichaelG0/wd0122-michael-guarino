@@ -4,6 +4,10 @@
     z-index: 1020;
 }
 
+* {
+    word-break: normal;
+}
+
 .src-btn {
     border-radius: 0 0.3rem 0.3rem 0 !important;
 }
