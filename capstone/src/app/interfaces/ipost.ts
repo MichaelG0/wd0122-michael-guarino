@@ -1,7 +1,9 @@
+import { Icomment } from "./icomment";
+
 export interface IPost {
   title: string;
   caption: string;
   userid: number
-  comments?: {userid: number, comment: string}[]
+  comments?: Icomment[]
   id?: number
 }

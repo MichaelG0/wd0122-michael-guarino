@@ -8,7 +8,7 @@
 
         <hr class="my-2">
         
-        <a (click)="getComments()" class="link-secondary" role="button" data-bs-toggle="collapse"
+        <a (click)="getCommentsUsers()" class="link-secondary" role="button" data-bs-toggle="collapse"
             attr.data-bs-target="#commentArea{{i}}" aria-expanded="false" attr.aria-controls="commentArea{{i}}">
             <i class="bi bi-chat me-2"></i>Reply
         </a>
@@ -25,12 +25,10 @@
             <small *ngIf="!loggedUser" class="d-block mb-3">You must be logged to reply to this post</small>
 
             <div *ngFor="let c of comments">
-                <div class="d-flex">
-                    <a class="d-flex link-dark text-decoration-none align-items-center me-2">
-                        <div class="post-avatar-box"><img src=""></div>
-                    </a>
-                    <span class="d-flex align-items-center fw-bold">{{c.userid}}</span>
-                </div>
+                <a class="d-flex link-dark text-decoration-none align-items-center">
+                    <div class="post-avatar-box me-2"><img src=""></div>
+                    <span class="d-flex align-items-center fw-bold">{{c.username}}</span>
+                </a>
                 <div class="d-flex">
                     <div class="comm-spacer"></div>
                     <p class="comment">{{c.comment}}</p>

@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { IAuthData } from '../interfaces/iauth-data';
 import { IUser } from '../interfaces/iuser';
 import { catchError, tap } from 'rxjs/operators';
-import { BehaviorSubject, of } from 'rxjs';
+import { BehaviorSubject, from, of, concatMap } from 'rxjs';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { IUserWithToken } from '../interfaces/iuser-with-token';
 import { Router } from '@angular/router';
@@ -81,6 +81,12 @@ export class UserService {
     return this.http.get(this.apiUrl + 'users/' + id).pipe(
       catchError(() => of(false))
     )
+  }
+
+  getSpecificUsers(ids: number[]) {
+    return from(ids).pipe(
+      concatMap((id) => this.http.get(this.apiUrl + 'users/' + id))
+    );
   }
 
   getUsers() {
