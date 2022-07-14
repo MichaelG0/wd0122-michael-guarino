@@ -1,9 +1,10 @@
-import { Icomment } from "./icomment";
+import { Icomment } from './icomment';
 
 export interface IPost {
   title: string;
   caption: string;
-  userid: number
-  comments?: Icomment[]
-  id?: number
+  userid: number;
+  comments?: Icomment[];
+  id?: number;
+  date: string;
 }

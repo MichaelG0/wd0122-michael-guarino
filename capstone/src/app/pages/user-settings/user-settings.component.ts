@@ -77,8 +77,7 @@ export class UserSettingsComponent implements OnInit {
     this.sucAlert = false
     this.loading = true
     const obsArr = [this.userSrv.deleteUser(this.loggedUser!.user.id)]
-    if (this.userPostsIds.length > 0)
-      obsArr.push(this.postSrv.deletePosts(this.userPostsIds))
+    if (this.userPostsIds.length > 0) obsArr.push(this.postSrv.deletePosts(this.userPostsIds))
     
     forkJoin(obsArr).subscribe(() => {
       this.sucAlert = true

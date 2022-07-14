@@ -1,7 +1,11 @@
 <div class="card shadow-sm">
     <div class="card-body">
-        <a [routerLink]="[postUserId, 'user']" class="text-decoration-none">
-            <h6 class="card-subtitle mb-2 text-muted">{{postUsername}}</h6>
+        <a [routerLink]="[postUserId, 'user']" class="d-flex link-dark text-decoration-none align-items-center mb-2">
+            <div class="post-avatar-box me-2"><img src=""></div>
+            <div>
+                <h6 class="d-flex align-items-center card-subtitle text-muted">{{postUsername}}</h6>
+                <small>{{postTiming}}</small>
+            </div>
         </a>
         <h5 class="card-title">{{post.title}}</h5>
         <p class="card-text">{{post.caption}}</p>
@@ -27,7 +31,7 @@
             <div *ngFor="let c of comments">
                 <a class="d-flex link-dark text-decoration-none align-items-center">
                     <div class="post-avatar-box me-2"><img src=""></div>
-                    <span class="d-flex align-items-center fw-bold">{{c.username}}</span>
+                    <h6 class="d-flex align-items-center card-subtitle text-muted">{{c.username}}</h6>
                 </a>
                 <div class="d-flex">
                     <div class="comm-spacer"></div>

@@ -1,10 +1,13 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import TimeAgo from 'javascript-time-ago';
+import en from 'javascript-time-ago/locale/en'
 import { Icomment } from 'src/app/interfaces/icomment';
 import { IPost } from 'src/app/interfaces/ipost';
 import { IUserWithToken } from 'src/app/interfaces/iuser-with-token';
 import { PostService } from 'src/app/services/post.service';
 import { UserService } from 'src/app/services/user.service';
+TimeAgo.addDefaultLocale(en)
 
 @Component({
   selector: 'app-post-card',
@@ -21,6 +24,8 @@ export class PostCardComponent implements OnInit {
   comments: Icomment[] = []
   loading: boolean = false;
   funcCalled: boolean = false
+  timeAgo = new TimeAgo('en-US')
+  postTiming!: string
 
   constructor(private userSrv: UserService, private postSrv: PostService, private fb: FormBuilder) {}
 
@@ -29,6 +34,7 @@ export class PostCardComponent implements OnInit {
       this.loggedUser = res;
     })
     this.getUser();
+    this.postTiming = this.timeAgo.format(new Date(this.post.date).getTime())
     this.setForm();
   }
 
