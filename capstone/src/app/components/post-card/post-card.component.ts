@@ -25,6 +25,7 @@ export class PostCardComponent implements OnInit {
   loading: boolean = false;
   funcCalled: boolean = false
   timeAgo = new TimeAgo('en-US')
+  postDate!: Date
   postTiming!: string
 
   constructor(private userSrv: UserService, private postSrv: PostService, private fb: FormBuilder) {}
@@ -34,8 +35,32 @@ export class PostCardComponent implements OnInit {
       this.loggedUser = res;
     })
     this.getUser();
-    this.postTiming = this.timeAgo.format(new Date(this.post.date).getTime())
+    this.postDate = new Date(this.post.date)
+    this.dateUpdateInterval();
     this.setForm();
+  }
+
+  setPostTiming() {
+    this.postTiming = this.timeAgo.format(this.postDate.getTime(), {round: 'floor'})
+  }
+  
+  dateUpdateInterval(){
+    // console.log(this.postDate);
+    this.setPostTiming()
+    let format = this.postTiming.split(' ')[1]
+    if (format.slice(-1) == 's') format = format.slice(0, -1)
+    // console.log(format);
+    let delay: number = 1000
+    if (format == 'now' || format == 'minute') delay *= 60
+    else if (format == 'hour') delay *= 60 * 60
+    else if (format == 'day') delay *= 24 * 60 * 60
+    else delay *= 7 * 24 * 60 * 60
+    // console.log(delay);
+
+    setInterval(() => {
+      this.setPostTiming()
+      console.log('launched');
+    }, delay)
   }
 
   getUser() {
